@@ -1,0 +1,28 @@
+:root {
+  --root-font-size: 20px;
+  --root-line-height: 1.6rem;
+  --font-size-xl: 2.4rem;
+  --font-size-l: 1.2rem;
+}
+
+html {
+  font-family: "PT Sans";
+  font-size: var(--root-font-size);
+  line-height: var(--root-line-height);
+  color: var(--black);
+}
+
+.site-logo {
+  width: 32px;
+  height: 32px;
+}
+
+nav {
+  a {
+    color: var(--black);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
