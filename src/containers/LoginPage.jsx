@@ -1,7 +1,11 @@
+import Login from "./../components/Login";
+import Logout from "./../components/Logout";
+
 function LoginPage() {
   return (
     <div>
-      <h1>Login</h1>
+      <Login />
+      <Logout />
     </div>
   );
 }
