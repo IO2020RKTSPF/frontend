@@ -4,12 +4,14 @@
   --margin-l: calc(var(--root-line-height) / 2);
   --margin-m: calc(var(--margin-l) / 2);
 
-  --max-width: 60.8rem;
+  --max-width: 60rem;
 
   --border-radius: 0.3rem;
   --border-width: 0.1rem;
   --border-gray: var(--border-width) solid var(--gray);
   --border-accent: var(--border-width) solid var(--accent);
+
+  --box-shadow: 0 0.3rem 1rem 0 rgba(0, 0, 0, 0.19);
 }
 
 body {

@@ -22,14 +22,14 @@ $userImageSize: 24px;
     position: absolute;
     top: calc(var(--margin-m) * -1);
     margin: 0 calc(var(--margin-l) * -1);
-    width: 100%;
     padding: var(--margin-l);
     padding-top: 2.95rem;
+    width: 100%;
     background-color: var(--white);
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
     font-size: var(--font-size-m);
     z-index: -1;
-    border-radius: var(--border-radius);
     a {
       display: block;
     }
