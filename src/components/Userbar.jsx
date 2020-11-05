@@ -1,11 +1,17 @@
-import UserMenu from "./../components/UserMenu";
+import { Link } from "react-router-dom";
+import Bell from "../assets/images/bell.svg";
+import UserMenu from "../components/UserMenu";
 
 function Userbar() {
   return (
-    <div>
-      <span>Dzwonek</span>
+    <div className="userbar">
+      <Link to={"/"} className="bell">
+        <img src={Bell} alt="Bell" />
+      </Link>
       <UserMenu />
-      <span>Przycisk dodaj ogloszenia</span>
+      <Link to={"/"} className="accent-button">
+        Dodaj książkę
+      </Link>
     </div>
   );
 }

@@ -1,7 +1,15 @@
 :root {
-  --margin: calc(var(--root-line-height) / 2);
-  --margin-m: calc(var(--margin) / 2);
+  --margin-xxl: calc(var(--margin-l) * 3);
+  --margin-xl: var(--root-line-height);
+  --margin-l: calc(var(--root-line-height) / 2);
+  --margin-m: calc(var(--margin-l) / 2);
+
   --max-width: 60.8rem;
+
+  --border-radius: 0.3rem;
+  --border-width: 0.1rem;
+  --border-gray: var(--border-width) solid var(--gray);
+  --border-accent: var(--border-width) solid var(--accent);
 }
 
 body {
@@ -9,8 +17,8 @@ body {
 }
 
 .container {
-  padding-left: var(--margin);
-  padding-right: var(--margin);
+  padding-left: var(--margin-l);
+  padding-right: var(--margin-l);
   margin-left: auto;
   margin-right: auto;
   max-width: var(--max-width);

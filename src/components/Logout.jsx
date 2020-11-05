@@ -24,9 +24,9 @@ function Logout() {
   });
 
   return (
-    <button onClick={signOut}>
-      <span>Logout</span>
-    </button>
+    <label className="logout">
+      <button onClick={signOut}>Wyloguj</button>
+    </label>
   );
 }
 export default Logout;

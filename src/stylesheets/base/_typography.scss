@@ -3,6 +3,7 @@
   --root-line-height: 1.6rem;
   --font-size-xl: 2.4rem;
   --font-size-l: 1.2rem;
+  --font-size-m: 0.9rem;
 }
 
 html {
@@ -21,5 +22,40 @@ nav {
   a {
     color: var(--black);
     text-decoration: none;
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.bell {
+  height: 24px;
+  width: 19px;
+}
+
+.arrow {
+  border: solid var(--gray);
+  border-width: 0 var(--border-width) var(--border-width) 0;
+  display: inline-block;
+  padding: 0.35rem;
+  margin-top: -0.4rem;
+  transform: rotate(45deg);
+}
+
+button {
+  cursor: pointer;
+}
+
+.accent-button {
+  padding: var(--margin-m) var(--margin-l);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--accent);
+  &:hover {
+    background-color: unset;
+    border: var(--border-accent);
+    padding: calc(var(--margin-m) - var(--border-width))
+      calc(var(--margin-l) - var(--border-width));
   }
 }
