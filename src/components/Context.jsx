@@ -1,8 +1,10 @@
 import { createContext } from "react";
 
 export const UserContext = createContext({
-  isLoggedIn: false,
-  providerResponse: null,
-  login: () => {},
-  logout: () => {},
+  userData: {
+    token: undefined,
+    imageUrl: undefined,
+    name: undefined,
+  },
+  setUserData: () => {},
 });

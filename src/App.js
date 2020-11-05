@@ -5,30 +5,32 @@ import Navbar from "./components/Navbar";
 import SearchPage from "./containers/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
+import Footer from "./components/Footer";
 import "./stylesheets/main.scss";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const login = () => {
-    setIsLoggedIn(true);
-  };
-  const logout = () => {
-    setIsLoggedIn(false);
-  };
+  const [userData, setUserData] = useState({
+    token: undefined,
+    imageUrl: undefined,
+    name: undefined,
+  });
 
   return (
     <BrowserRouter>
       <UserContext.Provider
-        value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+        value={{
+          userData: userData,
+          setUserData: setUserData,
+        }}
       >
         <Navbar />
         <Switch>
-          <Route exact path="/" component={SearchPage} />
           <Route path="/login" component={() => <LoginPage />} />
+          <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />
         </Switch>
       </UserContext.Provider>
+      <Footer />
     </BrowserRouter>
   );
 }

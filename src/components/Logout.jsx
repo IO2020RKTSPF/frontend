@@ -6,9 +6,13 @@ function Logout() {
   const userContext = useContext(UserContext);
 
   const onLogoutSuccess = (res) => {
-    console.log("Logged out Success");
-    userContext.logout();
+    console.log("Logged out Success", res);
+    userContext.setUserData({
+      token: undefined,
+      name: undefined,
+    });
   };
+
   const onFailure = () => {
     console.log("Handle failure cases");
   };
