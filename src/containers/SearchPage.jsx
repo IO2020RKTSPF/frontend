@@ -1,4 +1,4 @@
-import SearchBar from "../components/SearchBar";
+import SearchResults from "../components/SearchResults";
 
 function SearchPage() {
   return (
@@ -10,7 +10,7 @@ function SearchPage() {
           zawsze jest proste. W których inni użytkownicy mogą odnaleźć
           interesujące ich tytuły. Każdy czytający książki wie, że zdobycie.
         </p>
-        <SearchBar />
+        <SearchResults />
       </div>
     </div>
   );
