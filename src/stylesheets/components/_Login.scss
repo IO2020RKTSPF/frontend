@@ -1,0 +1,17 @@
+.login {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--margin-l);
+  padding: var(--margin-l) var(--margin-xl);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  font-size: var(--font-size-l);
+  color: var(--black);
+  background-color: var(--white);
+  img {
+    margin-right: var(--margin-l);
+    height: 1.2rem;
+    width: 1.175rem;
+  }
+}
