@@ -3,6 +3,12 @@
     top;
   background-size: var(--max-width);
   text-align: center;
+  h1 {
+    max-width: 32rem;
+  }
+  p {
+    max-width: 22.7rem;
+  }
   button,
   h1,
   p {
