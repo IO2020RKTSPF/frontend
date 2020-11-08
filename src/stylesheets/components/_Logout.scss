@@ -1,0 +1,14 @@
+.logout {
+  display: block;
+  margin-top: var(--margin-xl);
+  padding-top: var(--margin-l);
+  border-top: var(--border-gray);
+  width: 100%;
+  button {
+    padding: 0;
+    border: none;
+    color: var(--gray);
+    background-color: unset;
+    font-size: var(--font-size-m);
+  }
+}
