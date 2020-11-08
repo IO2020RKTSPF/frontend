@@ -4,6 +4,7 @@ $search-input-width: calc(100% - #{$search-input-horizontal-padding});
 .search-bar {
   display: flex;
   margin-top: calc(var(--margin-xl) * 2);
+  margin-bottom: var(--margin-xl);
   .search-term {
     position: relative;
     width: 100%;

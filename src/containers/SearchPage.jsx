@@ -12,7 +12,7 @@ function SearchPage() {
           interesujące ich tytuły. Każdy czytający książki wie, że zdobycie.
         </p>
         <SearchBar />
-        {/* <SearchResults /> */}
+        <SearchResults />
       </div>
     </div>
   );
