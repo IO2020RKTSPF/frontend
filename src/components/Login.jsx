@@ -18,6 +18,14 @@ function Login() {
     const fetchLogin = async () => {
   
       const result = await axios.get("http://localhost:8080/api/users/login/"+res.profileObj.googleId)
+      .then(function (resp) {
+        userContext.setUserData({
+          token: true,
+          imageUrl: res.profileObj.imageUrl,
+          name: res.profileObj.name,
+          userId : resp.data.id
+        });
+      })
       .catch(function(err){
         if(err.response.status === 404){
           //wykonac tutaj post z userem
@@ -33,16 +41,17 @@ function Login() {
               "Access-Control-Allow-Headers" : "*",
               "Access-Control-Allow-Origin" : "*"
             })
-            .catch(function (err) {
-              console.log(err)
-            })
             .then(function (resp) {
+              console.log(resp)
               userContext.setUserData({
                 token: true,
                 imageUrl: res.profileObj.imageUrl,
                 name: res.profileObj.name,
                 userId : resp.data.id
               });
+            })
+            .catch(function (err) {
+              console.log(err)
             })
           }
 
@@ -51,14 +60,6 @@ function Login() {
         }else{
           console.log(err);
         }
-      })
-      .then(function (resp) {
-        userContext.setUserData({
-          token: true,
-          imageUrl: res.profileObj.imageUrl,
-          name: res.profileObj.name,
-          userId : resp.data.id
-        });
       })
     };
 
