@@ -1,20 +1,21 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import Api from "../services/Api";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:8080/api/books");
-
-      setSearchResults(result.data);
+      await Api.get("/api/books")
+        .then((res) => {
+          console.log("Books", res);
+          setSearchResults(res.data);
+        })
+        .catch((err) => console.error("Api call", err));
     };
 
     fetchData();
   }, []);
-
-  console.log(searchResults);
 
   return (
     <ul>

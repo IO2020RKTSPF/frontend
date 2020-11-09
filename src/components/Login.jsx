@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "./Context";
 import { useGoogleLogin } from "react-google-login";
+import Api from "../services/Api";
 import GoogleLogo from "../assets/images/google-logo.svg";
-import axios from "axios";
 
 function Login() {
   const userContext = useContext(UserContext);
@@ -13,8 +13,7 @@ function Login() {
     const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-      await axios
-        .get("http://localhost:8080/api/users/login/" + providerRes.googleId)
+      await Api.get(`api/users/login/${providerRes.googleId}`)
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
@@ -31,19 +30,18 @@ function Login() {
             return;
           }
           const addUser = async () => {
-            await axios
-              .post(
-                "http://localhost:8080/api/users",
-                {
-                  loginId: providerRes.googleId,
-                  name: providerRes.name,
-                },
-                {
-                  "Content-Type": "application/json",
-                  "Access-Control-Allow-Headers": "*",
-                  "Access-Control-Allow-Origin": "*",
-                }
-              )
+            await Api.post(
+              "api/users",
+              {
+                loginId: providerRes.googleId,
+                name: providerRes.name,
+              },
+              {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+              }
+            )
               .then((res) => {
                 console.log("Login Success", res);
                 userContext.setUserData({
