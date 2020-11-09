@@ -1,29 +1,36 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import Api from "../services/Api";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://localhost:8080/api/books");
-
-      setSearchResults(result.data);
+      await Api.get("/api/books")
+        .then((res) => {
+          console.log("Books", res);
+          setSearchResults(res.data);
+        })
+        .catch((err) => console.error("Api call", err));
     };
-
     fetchData();
   }, []);
 
-  console.log(searchResults);
-
   return (
-    <ul>
+    <div className="search-results">
+      <div className="search-header">
+        <span>Zdjęcie</span>
+        <span>Tytuł</span>
+        <span>Autor</span>
+        <span>Lokalizacja</span>
+        <span>Właściciel</span>
+      </div>
       {searchResults.map((item) => (
-        <li key={item.id}>
+        <div key={item.id}>
           <span>{`${item.title}, ${item.author}, ${item.owner.name}`}</span>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
 export default SearchResults;

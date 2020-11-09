@@ -1,12 +1,27 @@
+import { useForm } from "react-hook-form";
+
 function SearchBar() {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <form action="" className="search-bar">
-      <input
-        type="text"
-        placeholder="Tytuł książki, autro itp."
-        className="search-term"
-      />
-      <input type="text" value="Cała Polska" className="search-location" />
+    <form onSubmit={handleSubmit(onSubmit)} className="search-bar">
+      <label className="search-term">
+        <input
+          type="text"
+          name="searchTerm"
+          placeholder="Tytuł książki, autor itp."
+          ref={register}
+        />
+      </label>
+      <label className="search-location">
+        <input
+          type="text"
+          name="searchLocation"
+          defaultValue="Cała Polska"
+          ref={register}
+        />
+      </label>
       <button>Szukaj</button>
     </form>
   );

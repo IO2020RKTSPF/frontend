@@ -2,69 +2,66 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "./Context";
 import { useGoogleLogin } from "react-google-login";
+import Api from "../services/Api";
 import GoogleLogo from "../assets/images/google-logo.svg";
-import axios from "axios";
 
 function Login() {
   const userContext = useContext(UserContext);
   const history = useHistory();
 
-
-  const onSuccess = (res) => {
-    console.log("Login Success", res.profileObj);
-    
-    history.push("/");
+  const onSuccess = (providerResponse) => {
+    const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-  
-      const result = await axios.get("http://localhost:8080/api/users/login/"+res.profileObj.googleId)
-      .then(function (resp) {
-        userContext.setUserData({
-          token: true,
-          imageUrl: res.profileObj.imageUrl,
-          name: res.profileObj.name,
-          userId : resp.data.id
-        });
-      })
-      .catch(function(err){
-        if(err.response.status === 404){
-          //wykonac tutaj post z userem
-          
-          const addUser = async () =>{
-            const resultAdd = await axios.post("http://localhost:8080/api/users",
-            {
-              "loginId": res.profileObj.googleId,
-              "name": res.profileObj.name
-            },
-            {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Headers" : "*",
-              "Access-Control-Allow-Origin" : "*"
-            })
-            .then(function (resp) {
-              console.log(resp)
-              userContext.setUserData({
-                token: true,
-                imageUrl: res.profileObj.imageUrl,
-                name: res.profileObj.name,
-                userId : resp.data.id
-              });
-            })
-            .catch(function (err) {
-              console.log(err)
-            })
+      await Api.get(`api/users/login/${providerRes.googleId}`)
+        .then((res) => {
+          console.log("Login Success", res);
+          userContext.setUserData({
+            token: true,
+            imageUrl: providerRes.imageUrl,
+            name: providerRes.name,
+            userId: res.data.id,
+          });
+          history.push("/");
+        })
+        .catch((err) => {
+          if (err.response === undefined || err.response.status !== 404) {
+            console.log(err);
+            return;
           }
+          const addUser = async () => {
+            await Api.post(
+              "api/users",
+              {
+                loginId: providerRes.googleId,
+                name: providerRes.name,
+              },
+              {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+              }
+            )
+              .then((res) => {
+                console.log("Login Success", res);
+                userContext.setUserData({
+                  token: true,
+                  imageUrl: providerRes.imageUrl,
+                  name: providerRes.name,
+                  userId: res.data.id,
+                });
+                history.push("/");
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          };
 
           addUser();
-
-        }else{
-          console.log(err);
-        }
-      })
+        });
     };
 
     fetchLogin();
-
   };
 
   const onFailure = (res) => {
