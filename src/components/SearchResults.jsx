@@ -16,20 +16,31 @@ function SearchResults() {
     fetchData();
   }, []);
 
+  const results = () => {
+    return searchResults.map((item) => (
+      <div key={item.id} className="result">
+        <div className="result-header">
+          <img src="" alt="" className="image" />
+          <span className="title">{item.title}</span>
+          <span className="author">{item.author}</span>
+          <span className="location">Bielsko-Biała</span>
+          <span className="owner">{item.owner.name}</span>
+        </div>
+        <button className="accent-button">Wypożycz</button>
+      </div>
+    ));
+  };
+
   return (
     <div className="search-results">
-      <div className="search-header">
-        <span>Zdjęcie</span>
-        <span>Tytuł</span>
-        <span>Autor</span>
-        <span>Lokalizacja</span>
-        <span>Właściciel</span>
+      <div className="results-header">
+        <span className="image">Zdjęcie</span>
+        <span className="title">Tytuł</span>
+        <span className="author">Autor</span>
+        <span className="location">Lokalizacja</span>
+        <span className="owner">Właściciel</span>
       </div>
-      {searchResults.map((item) => (
-        <div key={item.id}>
-          <span>{`${item.title}, ${item.author}, ${item.owner.name}`}</span>
-        </div>
-      ))}
+      {results()}
     </div>
   );
 }

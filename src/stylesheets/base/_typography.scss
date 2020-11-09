@@ -40,8 +40,8 @@ p {
 }
 
 .site-logo {
-  width: 32px;
-  height: 32px;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 nav {
@@ -75,15 +75,18 @@ button {
 .accent-button {
   padding: var(--margin-m) var(--margin-l);
   padding-top: var(--margin-top-m);
+  border: none;
   border-radius: var(--border-radius);
   color: var(--white);
   font-weight: bold;
   background-color: var(--accent);
   &:hover {
+    color: var(--accent);
     background-color: var(--white);
     border: var(--border-accent);
     padding: calc(var(--margin-m) - var(--border-width))
       calc(var(--margin-l) - var(--border-width));
+    padding-top: calc(var(--margin-top-m) - var(--border-width));
   }
 }
 
