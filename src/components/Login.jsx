@@ -2,20 +2,66 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "./Context";
 import { useGoogleLogin } from "react-google-login";
+import Api from "../services/Api";
 import GoogleLogo from "../assets/images/google-logo.svg";
 
 function Login() {
   const userContext = useContext(UserContext);
   const history = useHistory();
 
-  const onSuccess = (res) => {
-    console.log("Login Success", res.profileObj);
-    userContext.setUserData({
-      token: true,
-      imageUrl: res.profileObj.imageUrl,
-      name: res.profileObj.name,
-    });
-    history.push("/");
+  const onSuccess = (providerResponse) => {
+    const providerRes = providerResponse.profileObj;
+
+    const fetchLogin = async () => {
+      await Api.get(`api/users/login/${providerRes.googleId}`)
+        .then((res) => {
+          console.log("Login Success", res);
+          userContext.setUserData({
+            token: true,
+            imageUrl: providerRes.imageUrl,
+            name: providerRes.name,
+            userId: res.data.id,
+          });
+          history.push("/");
+        })
+        .catch((err) => {
+          if (err.response === undefined || err.response.status !== 404) {
+            console.log(err);
+            return;
+          }
+          const addUser = async () => {
+            await Api.post(
+              "api/users",
+              {
+                loginId: providerRes.googleId,
+                name: providerRes.name,
+              },
+              {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+              }
+            )
+              .then((res) => {
+                console.log("Login Success", res);
+                userContext.setUserData({
+                  token: true,
+                  imageUrl: providerRes.imageUrl,
+                  name: providerRes.name,
+                  userId: res.data.id,
+                });
+                history.push("/");
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          };
+
+          addUser();
+        });
+    };
+
+    fetchLogin();
   };
 
   const onFailure = (res) => {
