@@ -1,5 +1,7 @@
 .search-results {
   img.image {
+    border-radius: var(--border-radius);
+    object-fit: cover;
     height: 2.4rem;
     width: 3.072rem;
   }
