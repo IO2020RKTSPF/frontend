@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Api from "../services/Api";
+import Tooltip from "./Tooltip";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
@@ -26,7 +27,10 @@ function SearchResults() {
           <span className="location">Bielsko-Biała</span>
           <span className="owner">{item.owner.name}</span>
         </div>
-        <button className="accent-button">Wypożycz</button>
+        <div className="result-button">
+          <button className="accent-button">Wypożycz</button>
+          <Tooltip text="Wysłanie prośby o wypożyczenie książki od właściciela." />
+        </div>
       </div>
     ));
   };

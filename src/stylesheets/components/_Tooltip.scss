@@ -1,0 +1,33 @@
+$size: 1.2rem;
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+  width: $size;
+  height: $size;
+  img {
+    width: $size;
+    height: $size;
+  }
+  .tooltip-text {
+    display: none;
+    position: absolute;
+    top: calc((var(--margin-xl) + var(--margin-m)) * -1);
+    right: calc(var(--margin-l) * -1);
+    padding: var(--margin-l);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--white);
+    z-index: 1;
+    p {
+      font-size: var(--font-size-m);
+      line-height: var(--line-height-m);
+      margin: 0;
+      width: 16.15rem;
+    }
+  }
+  &:hover .tooltip-text {
+    display: flex;
+    align-items: flex-end;
+  }
+}

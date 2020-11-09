@@ -5,6 +5,7 @@
   --line-height-xl: 2.8rem;
   --font-size-l: 1.2rem;
   --font-size-m: 0.9rem;
+  --line-height-m: 1.2rem;
   --leter-spacing: -0.05rem;
 }
 
@@ -73,6 +74,7 @@ button {
 }
 
 .accent-button {
+  margin: 0;
   padding: var(--margin-m) var(--margin-l);
   padding-top: var(--margin-top-m);
   border: none;
