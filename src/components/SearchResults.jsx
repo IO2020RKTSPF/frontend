@@ -13,18 +13,24 @@ function SearchResults() {
         })
         .catch((err) => console.error("Api call", err));
     };
-
     fetchData();
   }, []);
 
   return (
-    <ul>
+    <div className="search-results">
+      <div className="search-header">
+        <span>Zdjęcie</span>
+        <span>Tytuł</span>
+        <span>Autor</span>
+        <span>Lokalizacja</span>
+        <span>Właściciel</span>
+      </div>
       {searchResults.map((item) => (
-        <li key={item.id}>
+        <div key={item.id}>
           <span>{`${item.title}, ${item.author}, ${item.owner.name}`}</span>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
 export default SearchResults;
