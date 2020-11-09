@@ -5,6 +5,7 @@
   --line-height-xl: 2.8rem;
   --font-size-l: 1.2rem;
   --font-size-m: 0.9rem;
+  --line-height-m: 1.2rem;
   --leter-spacing: -0.05rem;
 }
 
@@ -40,8 +41,8 @@ p {
 }
 
 .site-logo {
-  width: 32px;
-  height: 32px;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 nav {
@@ -59,7 +60,7 @@ nav {
   width: 0.95rem;
 }
 
-.arrow {
+.arrow-icon {
   border: solid var(--gray);
   border-width: 0 var(--border-width) var(--border-width) 0;
   display: inline-block;
@@ -68,22 +69,36 @@ nav {
   transform: rotate(45deg);
 }
 
+.location-icon {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  margin-right: 2px;
+  width: 18px;
+  height: 21px;
+  background: url(../../assets/images/location.svg) no-repeat;
+}
+
 button {
   cursor: pointer;
 }
 
 .accent-button {
+  margin: 0;
   padding: var(--margin-m) var(--margin-l);
   padding-top: var(--margin-top-m);
+  border: none;
   border-radius: var(--border-radius);
   color: var(--white);
   font-weight: bold;
   background-color: var(--accent);
   &:hover {
+    color: var(--accent);
     background-color: var(--white);
     border: var(--border-accent);
     padding: calc(var(--margin-m) - var(--border-width))
       calc(var(--margin-l) - var(--border-width));
+    padding-top: calc(var(--margin-top-m) - var(--border-width));
   }
 }
 

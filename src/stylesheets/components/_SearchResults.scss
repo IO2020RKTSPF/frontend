@@ -1,6 +1,70 @@
 .search-results {
-  .search-header {
+  img.image {
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    height: 2.4rem;
+    width: 3.072rem;
+  }
+  .title,
+  .author {
+    width: 9.05rem;
+  }
+  .title,
+  .author {
+    max-width: 10.4rem;
+  }
+  .location,
+  .owner {
+    width: 7.7rem;
+  }
+  .image,
+  .title,
+  .author,
+  .location,
+  .owner {
+    display: inline-block;
+    margin-right: var(--margin-xl);
+  }
+  .results-header {
+    padding-left: 3.85rem;
+    padding-bottom: var(--margin-m);
+    padding-right: 8.55rem;
+    overflow: hidden;
     border-bottom: var(--border-gray);
+    height: 1.6rem;
     color: var(--gray);
+  }
+  .result {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--margin-xl);
+    padding: 0 var(--margin-l);
+    height: 4rem;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    .result-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      overflow: hidden;
+      margin: var(--margin-l) 0;
+      padding-left: 3rem;
+      line-height: var(--line-height-m);
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+    .result-button {
+      display: flex;
+      align-items: center;
+      button {
+        margin-right: var(--margin-l);
+      }
+    }
   }
 }
