@@ -14,7 +14,7 @@ function UserMenu() {
       </div>
 
       <span>{userData.name}</span>
-      <i className="arrow"></i>
+      <i className="arrow-icon"></i>
       <div className="user-menu-dropdown">
         <Link to={"/"}>Moje książki</Link>
         <Link to={"/"}> Wypożyczone książki</Link>

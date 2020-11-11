@@ -5,6 +5,7 @@ export const UserContext = createContext({
     token: undefined,
     imageUrl: undefined,
     name: undefined,
+    userId : undefined,
   },
   setUserData: () => {},
 });
