@@ -2,10 +2,10 @@ import { createContext } from "react";
 
 export const UserContext = createContext({
   userData: {
-    token: undefined,
+    isLogged: false,
     imageUrl: undefined,
     name: undefined,
-    userId : undefined,
+    userId: undefined,
   },
   setUserData: () => {},
 });
