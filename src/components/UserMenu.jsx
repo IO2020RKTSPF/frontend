@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "./Context";
+import { UserContext } from "../services/Context";
 import { Link } from "react-router-dom";
 import Logout from "./../components/Logout";
 
@@ -16,7 +16,7 @@ function UserMenu() {
       <span>{userData.name}</span>
       <i className="arrow-icon"></i>
       <div className="user-menu-dropdown">
-        <Link to={"/"}>Moje książki</Link>
+        <Link to={"/my-books"}>Moje książki</Link>
         <Link to={"/"}> Wypożyczone książki</Link>
         <Link to={"/"}>Wiadkomości</Link>
         <Link to={"/"}>Ustawienia konta</Link>

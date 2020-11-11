@@ -1,6 +1,6 @@
 import { useGoogleLogout } from "react-google-login";
 import { useContext } from "react";
-import { UserContext } from "./Context";
+import { UserContext } from "../services/Context";
 
 function Logout() {
   const userContext = useContext(UserContext);
@@ -8,7 +8,7 @@ function Logout() {
   const onLogoutSuccess = (res) => {
     console.log("Logged out Success", res);
     userContext.setUserData({
-      token: undefined,
+      isLogged: false,
       name: undefined,
     });
   };
