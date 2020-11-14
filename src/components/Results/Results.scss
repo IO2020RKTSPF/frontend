@@ -1,6 +1,15 @@
 $result-height: 4rem;
 
 .result {
+  line-height: var(--line-height-m);
+  img {
+    border-radius: var(--border-radius);
+    object-fit: cover;
+  }
+  .image {
+    height: 2.4rem;
+    width: 3.072rem;
+  }
   .result-header {
     position: relative;
     display: flex;
@@ -17,14 +26,18 @@ $result-height: 4rem;
       align-items: center;
       overflow: hidden;
       margin: var(--margin-l) 0;
-      padding-left: 3rem;
-      line-height: var(--line-height-m);
       span {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+      }
+      .arrow-icon {
+        margin-top: 0.1rem;
+        margin-left: calc(var(--margin-xl) - var(--margin-l));
+        margin-right: var(--margin-xl);
+        transform: rotate(-45deg);
       }
     }
     .result-button {
@@ -35,19 +48,48 @@ $result-height: 4rem;
       }
     }
   }
-  .details {
+  .result-details {
     display: none;
   }
 }
 
 .show-details {
-  .details {
-    display: block;
+  .short-details {
+    .arrow-icon {
+      margin-top: -0.4rem !important;
+      transform: rotate(45deg) !important;
+      border-color: var(--accent);
+    }
+  }
+  .result-details {
+    display: flex;
     margin-top: calc(var(--border-radius) * -1);
-    padding: var(--margin-l);
-    padding-top: calc(var(--border-radius) + var(--margin-l));
+    padding: var(--margin-xl);
+    padding-top: calc(var(--border-radius) + var(--margin-xl));
     background-color: var(--light-gray);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: var(--box-shadow);
+    img {
+      width: 5.4rem;
+      height: 6.4rem;
+      margin-right: var(--margin-xl);
+    }
+    .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+      gap: var(--margin-xl);
+      width: 100%;
+      .image,
+      .title,
+      .author,
+      .location,
+      .owner {
+        width: auto;
+        max-width: unset;
+      }
+      h4 {
+        margin-top: -6px;
+      }
+    }
   }
 }
