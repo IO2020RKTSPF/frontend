@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "./Context";
+import { UserContext } from "../services/Context";
 import { useGoogleLogin } from "react-google-login";
 import Api from "../services/Api";
 import GoogleLogo from "../assets/images/google-logo.svg";
@@ -17,7 +17,7 @@ function Login() {
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
-            token: true,
+            isLogged: true,
             imageUrl: providerRes.imageUrl,
             name: providerRes.name,
             userId: res.data.id,
@@ -45,7 +45,7 @@ function Login() {
               .then((res) => {
                 console.log("Login Success", res);
                 userContext.setUserData({
-                  token: true,
+                  isLogged: true,
                   imageUrl: providerRes.imageUrl,
                   name: providerRes.name,
                   userId: res.data.id,

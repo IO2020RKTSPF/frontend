@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "./Context";
+import { UserContext } from "../services/Context";
 import Userbar from "./Userbar";
 import Logo from "../assets/images/logo.svg";
 
@@ -8,7 +8,7 @@ function Navbar() {
   const userContext = useContext(UserContext);
 
   const showUserMenu = () => {
-    return userContext.userData.token ? (
+    return userContext.userData.isLogged ? (
       <Userbar />
     ) : (
       <Link to={"/login"}>Zaloguj się</Link>
