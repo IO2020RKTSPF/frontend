@@ -115,7 +115,9 @@ input {
   padding: var(--margin-m) var(--margin-l);
   padding-top: var(--margin-top-m);
   border: var(--border-gray);
-  font-size: var(--font-size-l);
+  border-radius: var(--border-radius);
+  font-size: var(--root-font-size);
+  line-height: var(--root-line-height);
 }
 
 input::placeholder {

@@ -9,7 +9,7 @@ function Userbar() {
         <img src={Bell} alt="Bell" />
       </Link>
       <UserMenu />
-      <Link to={"/"} className="accent-button">
+      <Link to={"/add-book"} className="accent-button">
         Dodaj książkę
       </Link>
     </div>
