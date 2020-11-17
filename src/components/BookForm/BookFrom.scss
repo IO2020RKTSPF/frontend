@@ -20,8 +20,4 @@
     display: block;
     width: calc(100% - (var(--margin-l) * 2) - 4px);
   }
-  input[type="file"] {
-    color: var(--accent);
-    border: var(--border-accent);
-  }
 }

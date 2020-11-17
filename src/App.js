@@ -32,6 +32,7 @@ function App() {
           <Route path="/login" component={LoginPage} />
           <PrivateRoute path="/my-books" component={MyBooksPage} />
           <PrivateRoute path="/add-book" component={AddBookPage} />
+          <Route path="/add-book" component={AddBookPage} />
           <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />
         </Switch>
