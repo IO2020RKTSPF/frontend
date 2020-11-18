@@ -1,5 +1,6 @@
-import SearchBar from "../components/SearchBar";
-import SearchResults from "../components/SearchResults";
+import SearchBar from "../../components/SearchBar";
+import SearchResults from "../../components/SearchResults";
+import "./SearchPage.scss";
 
 function SearchPage() {
   return (

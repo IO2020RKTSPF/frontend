@@ -1,8 +1,12 @@
 function MyBooksPage(props) {
   console.log(props);
   return (
-    <div>
-      <h1>Books</h1>
+    <div className="container">
+      <h1>Moje książki</h1>
+      <p>
+        Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
+        zawsze jest proste.
+      </p>
     </div>
   );
 }

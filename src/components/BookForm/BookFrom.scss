@@ -1,0 +1,23 @@
+.book-form {
+  margin-top: calc(var(--margin-xl) * 2);
+  max-width: 817px;
+  .form-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    column-gap: var(--margin-l);
+    row-gap: var(--margin-xl);
+    margin-bottom: var(--margin-xl);
+    .tooltip {
+      margin-left: var(--margin-m);
+      top: 5px;
+    }
+  }
+  span {
+    display: inline-block;
+    margin-bottom: var(--margin-m);
+  }
+  input {
+    display: block;
+    width: calc(100% - (var(--margin-l) * 2) - 4px);
+  }
+}
