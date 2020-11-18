@@ -25,6 +25,15 @@ h1 {
   letter-spacing: var(--leter-spacing);
 }
 
+h4 {
+  margin-top: 0;
+  margin-bottom: var(--margin-m);
+  font-size: var(--root-font-size);
+  line-height: var(--line-height-m);
+  color: var(--gray);
+  font-weight: normal;
+}
+
 p {
   margin-top: var(--margin-xl);
 }

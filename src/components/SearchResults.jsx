@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Api from "../services/Api";
-import Tooltip from "./Tooltip";
-import Book from "../assets/images/default-book.jpg";
+import Results from "./Results/Results";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
@@ -18,26 +17,6 @@ function SearchResults() {
     fetchData();
   }, []);
 
-  const results = () => {
-    return searchResults.map((item) => (
-      <div key={item.id} className="result">
-        <div className="result-header">
-          <img src={Book} alt="Book" className="image" />
-          <span className="title">{item.title}</span>
-          <span className="author">{item.author}</span>
-          <span className="location">
-            <i className="location-icon"></i>Bielsko-Biała
-          </span>
-          <span className="owner">{item.owner.name}</span>
-        </div>
-        <div className="result-button">
-          <button className="accent-button">Wypożycz</button>
-          <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
-        </div>
-      </div>
-    ));
-  };
-
   return (
     <div className="search-results">
       <div className="results-header">
@@ -49,7 +28,7 @@ function SearchResults() {
         </span>
         <span className="owner">Właściciel</span>
       </div>
-      {results()}
+      <Results searchResults={searchResults} />
     </div>
   );
 }
