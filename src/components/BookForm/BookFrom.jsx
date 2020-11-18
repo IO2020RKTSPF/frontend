@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import Tooltip from "../Tooltip";
 import "./BookFrom.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
-import validationSchema from "../../services/ValidationSchema";
+import {
+  validationSchema,
+  errorMessage,
+} from "../../services/ValidationSchema";
 
 function BookFrom() {
   const { register, handleSubmit, errors } = useForm({
@@ -15,33 +18,58 @@ function BookFrom() {
       <div className="form-section">
         <label>
           <span>Tytuł</span>
-          <input type="text" name="title" ref={register} />
-          {errors.title && <span>{errors.title.message}</span>}
+          <input
+            type="text"
+            name="title"
+            ref={register}
+            className={errors.title && "error"}
+          />
+          {errors.title && errorMessage(errors.title.message)}
         </label>
         <label>
           <span>Autor</span>
-          <input type="text" name="author" ref={register} />
-          {errors.author && <span>{errors.author.message}</span>}
+          <input
+            type="text"
+            name="author"
+            ref={register}
+            className={errors.author && "error"}
+          />
+          {errors.author && errorMessage(errors.author.message)}
         </label>
         <label>
           <span>Numer ISBN</span>
           <Tooltip text="Niepowtarzalny 13-cyfrowy (kiedyś 10-cyforwy) identyfikator książki." />
-          <input type="text" name="isbn" ref={register} />
-          {errors.isbn && <span>{errors.isbn.message}</span>}
+          <input
+            type="text"
+            name="isbn"
+            ref={register}
+            className={errors.isbn && "error"}
+          />
+          {errors.isbn && errorMessage(errors.isbn.message)}
         </label>
       </div>
       <div className="form-section">
         <label>
           <span>Zdjęcie</span>
-          <input type="file" name="photo" ref={register} />
-          {errors.photo && <span>{errors.photo.message}</span>}
+          <input
+            type="file"
+            name="photo"
+            ref={register}
+            className={errors.photo && "error"}
+          />
+          {errors.photo && errorMessage(errors.photo.message)}
         </label>
       </div>
       <div className="form-section">
         <label>
           <span>Opis</span>
-          <input type="text" name="description" ref={register} />
-          {errors.description && <span>{errors.description.message}</span>}
+          <input
+            type="text"
+            name="description"
+            ref={register}
+            className={errors.description && "error"}
+          />
+          {errors.description && errorMessage(errors.description.message)}
         </label>
       </div>
       <button className="accent-button">Dodaj</button>

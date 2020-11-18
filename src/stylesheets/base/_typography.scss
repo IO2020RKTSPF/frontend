@@ -123,3 +123,8 @@ input {
 input::placeholder {
   color: var(--gray);
 }
+
+.error {
+  color: var(--accent);
+  border-color: var(--accent);
+}

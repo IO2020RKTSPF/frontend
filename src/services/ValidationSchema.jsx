@@ -1,8 +1,13 @@
 import * as yup from "yup";
 
 const required = "Pole wymagane";
+const supportedFormats = ["image/png", "image/jpeg", "image/jpg"];
 
-export default yup.object().shape({
+export const errorMessage = (text) => {
+  return <span className="error">{text}</span>;
+};
+
+export const validationSchema = yup.object().shape({
   title: yup
     .string()
     .required(required)
@@ -23,10 +28,7 @@ export default yup.object().shape({
       return value && value.length === 1;
     })
     .test("fileFormat", "Zdjęcie tylko w formacie .png lub .jpg", (value) => {
-      return (
-        value[0] &&
-        (value[0].type === "image/png" || value[0].type === "image/jpeg")
-      );
+      return value[0] && supportedFormats.includes(value[0].type);
     })
     .test("fileSize", "Maksymalny rozmiar zdjęcia to 1 MB", (value) => {
       return value[0] && value[0].size <= 1000000;
