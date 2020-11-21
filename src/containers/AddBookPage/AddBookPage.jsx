@@ -1,7 +1,9 @@
-import BookFrom from "../../components/BookForm/BookFrom";
+import BookForm from "../../components/BookForm/BookForm";
 import "./AddBookPage.scss";
 
 function AddBookPage() {
+  const onSubmit = (data) => console.log(data);
+
   return (
     <div className="add-book-page">
       <div className="container">
@@ -10,7 +12,7 @@ function AddBookPage() {
           Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
           zawsze jest proste.
         </p>
-        <BookFrom />
+        <BookForm onSubmit={onSubmit} />
       </div>
     </div>
   );

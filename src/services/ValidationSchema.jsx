@@ -11,17 +11,17 @@ export const validationSchema = yup.object().shape({
   title: yup
     .string()
     .required(required)
-    .min(3, "Minimum 3 znaki")
-    .max(70, "Maksymalnie 70 znaków"),
+    .min(3, "Tytuł minimalnie może mieć 3 znaki")
+    .max(70, "Tytuł maksymalnie może mieć 70 znaków"),
   author: yup
     .string()
     .required(required)
-    .min(3, "Minimum 3 znaki")
-    .max(70, "Maksymalnie 70 znaków"),
+    .min(3, "Autor minimalnie może mieć 3 znaki")
+    .max(70, "Autor maksymalnie może mieć 70 znaków"),
   isbn: yup
     .string()
     .required(required)
-    .matches(/^(\d{10}|\d{13})$/, "Tylko 10 lub 13 cyfr"),
+    .matches(/^(\d{10}|\d{13})$/, "Numer ISBN to 10 lub 13 cyfr"),
   photo: yup
     .mixed()
     .test("required", required, (value) => {
@@ -33,5 +33,5 @@ export const validationSchema = yup.object().shape({
     .test("fileSize", "Maksymalny rozmiar zdjęcia to 1 MB", (value) => {
       return value[0] && value[0].size <= 1000000;
     }),
-  description: yup.string().max(70, "Maksymalnie 70 znaków"),
+  description: yup.string().max(70, "Opis maksymalnie może mieć 70 znaków"),
 });

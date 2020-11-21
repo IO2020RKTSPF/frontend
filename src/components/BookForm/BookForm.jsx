@@ -1,17 +1,17 @@
 import { useForm } from "react-hook-form";
 import Tooltip from "../Tooltip";
-import "./BookFrom.scss";
+import "./BookForm.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   validationSchema,
   errorMessage,
 } from "../../services/ValidationSchema";
 
-function BookFrom() {
+function BookFrom(props) {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => props.onSubmit(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="book-form">
@@ -42,6 +42,7 @@ function BookFrom() {
           <input
             type="text"
             name="isbn"
+            aria-label="Numer ISBN"
             ref={register}
             className={errors.isbn && "error"}
           />

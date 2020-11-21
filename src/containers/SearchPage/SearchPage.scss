@@ -1,6 +1,7 @@
 .shearch-page {
-  background: url(../../assets/images/main-background.svg);
-  background-size: 1857px;
-  background-position: top center;
-  background-repeat: repeat-y;
+  background: url(../../assets/images/main-background.svg),
+    url(../../assets/images/black-square.svg);
+  background-size: 1857px, var(--max-width);
+  background-position: top center, top center;
+  background-repeat: repeat-y, no-repeat;
 }
