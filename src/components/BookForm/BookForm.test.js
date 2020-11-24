@@ -14,7 +14,7 @@ const button = "Dodaj";
 const longText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae viverra urna. Morbi placerat dignissim sem, a pulvinar lorem egestas ac.";
 
-describe("Add book", () => {
+describe("Add book form", () => {
   test("renders component", () => {
     const { getByText, getByLabelText } = render(<BookForm />);
 

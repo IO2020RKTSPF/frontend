@@ -8,7 +8,7 @@ import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
 import MyBooksPage from "./containers/MyBooksPage";
 import AddBookPage from "./containers/AddBookPage/AddBookPage";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import "./stylesheets/main.scss";
 
 function App() {

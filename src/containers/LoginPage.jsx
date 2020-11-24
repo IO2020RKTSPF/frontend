@@ -10,7 +10,7 @@ function LoginPage() {
           zawsze jest proste.{" "}
         </p>
         <Login />
-        <p className="terms">
+        <p className="login-terms">
           Kontynuując zgadzasz się na naszą Politykę Prywatności i Regulamin
         </p>
       </div>
