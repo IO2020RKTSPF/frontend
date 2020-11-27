@@ -1,15 +1,44 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../services/Context";
 import Tooltip from "../Tooltip";
+import Button from "../Button/Button";
 import Book from "../../assets/images/default-book.jpg";
 import "./Results.scss";
 
 function Results(props) {
+  const userContext = useContext(UserContext);
   const [clickedResultId, setClickedResultId] = useState();
 
-  const handleClick = (index) => {
+  const handleShowMore = (index) => {
     index !== clickedResultId
       ? setClickedResultId(index)
       : setClickedResultId(null);
+  };
+
+  const handleBorrow = () => {
+    console.log("Borrow Button Clicked");
+  };
+
+  const showBorrowButton = () => {
+    return userContext.userData.isLogged ? (
+      <div className="result-button">
+        <Button
+          onClick={() => handleBorrow()}
+          className="accent-button"
+          text="Wypożycz"
+        />
+        <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
+      </div>
+    ) : (
+      <div className="result-button">
+        <Button className="disable" disabled={true} text="Wypożycz" />
+        <Tooltip
+          text="Zaloguj się aby móc wypożyczyć."
+          textStyle={{ width: "6.7rem" }}
+        />
+      </div>
+    );
   };
 
   const results = () => {
@@ -19,7 +48,7 @@ function Results(props) {
         className={clickedResultId === index ? "result show-details" : "result"}
       >
         <div className="result-header">
-          <div className="short-details" onClick={() => handleClick(index)}>
+          <div className="short-details" onClick={() => handleShowMore(index)}>
             <i className="arrow-icon"></i>
             <img src={Book} alt="Book" className="image" />
             <span className="title">{item.title}</span>
@@ -29,10 +58,7 @@ function Results(props) {
             </span>
             <span className="owner">{item.owner.name}</span>
           </div>
-          <div className="result-button">
-            <button className="accent-button">Wypożycz</button>
-            <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
-          </div>
+          {showBorrowButton()}
         </div>
         <div className="result-details">
           <img src={Book} alt="" />

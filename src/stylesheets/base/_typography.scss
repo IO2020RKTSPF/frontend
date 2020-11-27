@@ -77,10 +77,10 @@ footer {
 .location-icon {
   display: inline-block;
   position: relative;
-  top: 4px;
-  margin-right: 2px;
-  width: 18px;
-  height: 21px;
+  top: 0.25rem;
+  margin-right: 0.1rem;
+  width: 0.9rem;
+  height: 1.05rem;
   background: url(../../assets/images/location.svg) no-repeat;
 }
 
@@ -88,23 +88,29 @@ button {
   cursor: pointer;
 }
 
-.accent-button {
+.accent-button,
+.disable {
   margin: 0;
   padding: var(--margin-m) var(--margin-l);
   padding-top: var(--margin-top-m);
-  border: none;
   border-radius: var(--border-radius);
-  color: var(--white);
   font-weight: bold;
+}
+
+.accent-button {
+  border: var(--border-accent);
+  color: var(--white);
   background-color: var(--accent);
   &:hover {
     color: var(--accent);
     background-color: var(--white);
-    border: var(--border-accent);
-    padding: calc(var(--margin-m) - var(--border-width))
-      calc(var(--margin-l) - var(--border-width));
-    padding-top: calc(var(--margin-top-m) - var(--border-width));
   }
+}
+
+.disable {
+  border: var(--border-gray);
+  color: var(--gray);
+  background-color: var(--white);
 }
 
 input {

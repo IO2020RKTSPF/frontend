@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Tooltip from "../Tooltip";
 import "./BookForm.scss";
+import Button from "../Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   validationSchema,
@@ -73,7 +74,7 @@ function BookFrom(props) {
           {errors.description && errorMessage(errors.description.message)}
         </label>
       </div>
-      <button className="accent-button">Dodaj</button>
+      <Button className="accent-button" text="Dodaj" />
     </form>
   );
 }

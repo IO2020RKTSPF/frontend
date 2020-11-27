@@ -6,7 +6,7 @@ function Tooltip(props) {
     <div className="tooltip">
       <img src={Help} alt="Help" />
       <div className="tooltip-text">
-        <p>{props.text}</p>
+        <p style={props.textStyle}>{props.text}</p>
         <img src={HelpAccent} alt="Help" />
       </div>
     </div>
