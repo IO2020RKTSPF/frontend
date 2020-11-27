@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import SearchPage from "./containers/SearchPage/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
-import MyBooksPage from "./containers/MyBooksPage";
+import MyBooksPage from "./containers/MyBooksPage/MyBooksPage";
 import AddBookPage from "./containers/AddBookPage/AddBookPage";
 import Footer from "./components/Footer/Footer";
 import "./stylesheets/main.scss";

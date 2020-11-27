@@ -81,12 +81,10 @@ $result-height: 4rem;
       gap: var(--margin-xl);
       width: 100%;
       .image,
-      .title,
-      .author,
-      .location,
-      .owner {
+      span {
         width: auto;
         max-width: unset;
+        margin-right: 0;
       }
       h4 {
         margin-top: -6px;

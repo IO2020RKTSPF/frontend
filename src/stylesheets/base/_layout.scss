@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+[class*="page"] {
+  padding-top: var(--margin-xxxl);
+}
+
 .container {
   padding-left: var(--margin-l);
   padding-right: var(--margin-l);

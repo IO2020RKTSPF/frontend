@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Api from "../services/Api";
-import Results from "./Results/Results";
+import Api from "../../services/Api";
+import Results from "../Results/Results";
+import "./SearchResults.scss";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);

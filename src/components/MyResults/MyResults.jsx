@@ -1,13 +1,9 @@
 import { useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../services/Context";
-import Tooltip from "../Tooltip";
 import Button from "../Button/Button";
 import Book from "../../assets/images/default-book.jpg";
-import "./Results.scss";
+import "../MyResults/MyResults.scss";
 
-function Results(props) {
-  const userContext = useContext(UserContext);
+function MyResults(props) {
   const [clickedResultId, setClickedResultId] = useState();
 
   const handleShowMore = (index) => {
@@ -16,29 +12,8 @@ function Results(props) {
       : setClickedResultId(null);
   };
 
-  const handleBorrow = () => {
-    console.log("Borrow Button Clicked");
-  };
-
-  const showBorrowButton = () => {
-    return userContext.userData.isLogged ? (
-      <div className="result-button">
-        <Button
-          onClick={() => handleBorrow()}
-          className="accent-button"
-          text="Wypożycz"
-        />
-        <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
-      </div>
-    ) : (
-      <div className="result-button">
-        <Button className="disable" disabled={true} text="Wypożycz" />
-        <Tooltip
-          text="Zaloguj się aby móc wypożyczyć."
-          textStyle={{ width: "6.7rem" }}
-        />
-      </div>
-    );
+  const bookStatus = (isAvaible) => {
+    return isAvaible ? "Niewypożyczona" : "Wypożyczona";
   };
 
   const resultHeader = (item, index) => {
@@ -49,12 +24,12 @@ function Results(props) {
           <img src={Book} alt="Book" className="image" />
           <span className="title">{item.title}</span>
           <span className="author">{item.author}</span>
-          <span className="location">
-            <i className="location-icon"></i>Bielsko-Biała
-          </span>
-          <span className="owner">{item.owner.name}</span>
+          <span className="book-status">{bookStatus(item.isAvaible)}</span>
         </div>
-        {showBorrowButton()}
+        <div className="result-button">
+          <Button className="disable" text="Edytuj" />
+          <Button className="disable" text="Usuń" />
+        </div>
       </div>
     );
   };
@@ -77,14 +52,12 @@ function Results(props) {
             <span className="author">{item.author}</span>
           </div>
           <div>
-            <h4>Lokalizacja</h4>
-            <span className="location">
-              <i className="location-icon"></i>Bielsko-Biała
-            </span>
+            <h4>Numer ISBN</h4>
+            <span className="isbn">{item.isbn}</span>
           </div>
           <div>
-            <h4>Właściciel</h4>
-            <span className="owner">{item.owner.name}</span>
+            <h4>Status</h4>
+            <span className="book-status">{bookStatus(item.isAvaible)}</span>
           </div>
         </div>
       </div>
@@ -95,7 +68,11 @@ function Results(props) {
     return props.searchResults.map((item, index) => (
       <div
         key={index}
-        className={clickedResultId === index ? "result show-details" : "result"}
+        className={
+          clickedResultId === index
+            ? "result show-details my-results"
+            : "result my-results"
+        }
       >
         {resultHeader(item, index)}
         {resultDetails(item)}
@@ -105,4 +82,4 @@ function Results(props) {
 
   return results();
 }
-export default Results;
+export default MyResults;
