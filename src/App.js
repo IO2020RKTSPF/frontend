@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import SearchPage from "./containers/SearchPage/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
+import MessagesPage from "./containers/MessagesPage/MessagesPage";
 import MyBooksPage from "./containers/MyBooksPage/MyBooksPage";
 import AddBookPage from "./containers/AddBookPage/AddBookPage";
 import Footer from "./components/Footer/Footer";
@@ -30,9 +31,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/login" component={LoginPage} />
-          <PrivateRoute path="/my-books" component={MyBooksPage} />
+          <Route path="/my-books" component={MyBooksPage} />
+          <Route path="/messages" component={MessagesPage} />
           <PrivateRoute path="/add-book" component={AddBookPage} />
-          <Route path="/add-book" component={AddBookPage} />
           <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />
         </Switch>

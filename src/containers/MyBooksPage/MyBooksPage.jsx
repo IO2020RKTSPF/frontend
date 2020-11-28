@@ -3,7 +3,7 @@ import "./MyBooksPage.scss";
 
 function MyBooksPage() {
   return (
-    <div className="my-books-page">
+    <div className="my-books-page universal-background">
       <div className="container">
         <h1>Moje książki</h1>
         <p>

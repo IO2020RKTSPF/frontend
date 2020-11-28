@@ -130,3 +130,16 @@ input::placeholder {
   color: var(--accent);
   border-color: var(--accent);
 }
+
+.highlight {
+  animation: highlight-border 2s ease;
+}
+
+@keyframes highlight-border {
+  0% {
+    border: var(--border-accent);
+  }
+  100% {
+    border-color: var(--white);
+  }
+}

@@ -5,7 +5,7 @@ import UserMenu from "../components/UserMenu";
 function Userbar() {
   return (
     <div className="userbar">
-      <Link to={"/"} className="bell">
+      <Link to={"/messages"} className="bell">
         <img src={Bell} alt="Bell" />
       </Link>
       <UserMenu />

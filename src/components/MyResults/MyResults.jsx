@@ -67,11 +67,12 @@ function MyResults(props) {
   const results = () => {
     return props.searchResults.map((item, index) => (
       <div
+        id={item.id}
         key={index}
         className={
           clickedResultId === index
-            ? "result show-details my-results"
-            : "result my-results"
+            ? "result show-details my-result"
+            : "result my-result"
         }
       >
         {resultHeader(item, index)}

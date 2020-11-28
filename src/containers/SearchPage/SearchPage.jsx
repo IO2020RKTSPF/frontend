@@ -4,7 +4,7 @@ import "./SearchPage.scss";
 
 function SearchPage() {
   return (
-    <div className="shearch-page">
+    <div className="shearch-page universal-background">
       <div className="container">
         <h1>Poszukaj książki w swojej okolicy</h1>
         <p>

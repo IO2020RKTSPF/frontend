@@ -1,6 +1,7 @@
 $result-height: 4rem;
 
 .result {
+  margin-top: var(--margin-xl);
   line-height: var(--line-height-m);
   img {
     border-radius: var(--border-radius);
@@ -14,7 +15,6 @@ $result-height: 4rem;
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-top: var(--margin-xl);
     padding: 0 var(--margin-l);
     height: $result-height;
     box-shadow: var(--box-shadow);
