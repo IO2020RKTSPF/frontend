@@ -31,8 +31,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/login" component={LoginPage} />
-          <Route path="/my-books" component={MyBooksPage} />
-          <Route path="/messages" component={MessagesPage} />
+          <PrivateRoute path="/my-books" component={MyBooksPage} />
+          <PrivateRoute path="/messages" component={MessagesPage} />
           <PrivateRoute path="/add-book" component={AddBookPage} />
           <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />
