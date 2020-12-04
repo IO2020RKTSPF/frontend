@@ -13,14 +13,18 @@ function Login() {
     const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-      await Api.get(`api/users/login/${providerRes.googleId}`)
+      await Api.post(`api/users/login`,
+      {
+        googleId:providerRes.googleId
+      })
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
             isLogged: true,
             imageUrl: providerRes.imageUrl,
             name: providerRes.name,
-            userId: res.data.id,
+            userId: res.data.user.id,
+            token:res.data.token
           });
           history.push("/");
         })
