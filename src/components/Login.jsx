@@ -13,10 +13,7 @@ function Login() {
     const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-      await Api.post(`api/users/login`,
-      {
-        googleId:providerRes.googleId
-      })
+      await Api.post(`api/users/login?googleId=${providerRes.googleId}`)
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
@@ -26,6 +23,7 @@ function Login() {
             userId: res.data.user.id,
             token:res.data.token
           });
+          Api.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
           history.push("/");
         })
         .catch((err) => {
@@ -53,7 +51,9 @@ function Login() {
                   imageUrl: providerRes.imageUrl,
                   name: providerRes.name,
                   userId: res.data.id,
+                  token:res.data.token
                 });
+                Api.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
                 history.push("/");
               })
               .catch((err) => {
