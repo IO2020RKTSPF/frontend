@@ -7,4 +7,9 @@
   .results-header {
     padding-right: 10rem;
   }
+  .result-button {
+    button:last-child {
+      margin-right: 0;
+    }
+  }
 }
