@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../../services/Context";
 import Api from "../../services/Api";
 import Book from "../../assets/images/default-book.jpg";
 import ManageBookButton from "./components/ManageBookButton";
@@ -6,19 +7,20 @@ import "./MyBooks.scss";
 import Results from "../Results/Results";
 
 function MyBooks() {
+  const { userData } = useContext(UserContext);
   const [myBooks, setMyBooks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      await Api.get("/api/books")
+      await Api.get(`/api/users/${userData.userId}`)
         .then((res) => {
           console.log("MyBooks", res);
-          setMyBooks(res.data);
+          setMyBooks(res.data.books);
         })
         .catch((err) => console.error("Api call", err));
     };
     fetchData();
-  }, []);
+  }, [userData]);
 
   const bookStatus = (isAvaible) => {
     return isAvaible ? "Niewypożyczona" : "Wypożyczona";
