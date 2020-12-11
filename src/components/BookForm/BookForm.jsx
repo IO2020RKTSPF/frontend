@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import Tooltip from "../Tooltip";
 import "./BookForm.scss";
 import Button from "../Button/Button";
+import Api from "../../services/Api";
+import { UserContext } from "../../services/Context";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   validationSchema,
@@ -9,10 +11,28 @@ import {
 } from "../../services/ValidationSchema";
 
 function BookFrom(props) {
+  const {userData} = useContext(UserContext);
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
-  const onSubmit = (data) => props.onSubmit(data);
+  const onSubmit = async (data) => {
+    await Api.post('api/books',{
+      title: data.title,
+      author: data.author,
+      isbn: data.isbn,
+      isAvaible: true,
+      description: data.description,
+      imgUrl: "/url/jakis/testowy",
+      addedDate: "2020-12-11T14:22:58.275Z",
+      userId: userData.userId
+    })
+    .then((res) =>{
+      //jakis komunikat o powodzeniu :)
+    })
+    .catch((err)=>{
+      //jakis komunikat o niepowodzeniu :(
+    });
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="book-form">
@@ -39,7 +59,7 @@ function BookFrom(props) {
         </label>
         <label>
           <span>Numer ISBN</span>
-          <Tooltip text="Niepowtarzalny 13-cyfrowy (kiedyś 10-cyforwy) identyfikator książki." />
+          <Tooltip text="Niepowtarzalny 13-cyfrowy (kiedyś 10-cyfrowy) identyfikator książki." />
           <input
             type="text"
             name="isbn"
