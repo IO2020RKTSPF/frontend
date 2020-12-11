@@ -4,6 +4,7 @@ import "./BookForm.scss";
 import Button from "../Button/Button";
 import Api from "../../services/Api";
 import { UserContext } from "../../services/Context";
+import {useContext} from 'react'
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   validationSchema,
@@ -20,10 +21,8 @@ function BookFrom(props) {
       title: data.title,
       author: data.author,
       isbn: data.isbn,
-      isAvaible: true,
       description: data.description,
       imgUrl: "/url/jakis/testowy",
-      addedDate: "2020-12-11T14:22:58.275Z",
       userId: userData.userId
     })
     .then((res) =>{
