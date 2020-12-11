@@ -1,2 +1,21 @@
 .messages {
+  .checkbox {
+    margin-right: var(--margin-xl);
+    margin-left: var(--margin-l);
+  }
+  .results-header {
+    padding-left: var(--margin-l);
+    padding-right: var(--margin-l);
+  }
+  .last-activity {
+    float: right;
+    margin-right: 0 !important;
+  }
+  .message {
+    margin-top: var(--margin-xl);
+    line-height: var(--line-height-m);
+    .message-header {
+      align-items: center;
+    }
+  }
 }

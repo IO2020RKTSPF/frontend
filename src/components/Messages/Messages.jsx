@@ -1,29 +1,45 @@
-import { HashLink } from "react-router-hash-link";
+import { useState } from "react";
+import Checkbox from "../Checkbox/Checkbox";
 import "./Messages.scss";
 
 function Messages() {
-  const onScroll = (e) => {
-    e.scrollIntoView();
-    e.classList.add("highlight");
+  const [isCheckedAll, setIsCheckedAll] = useState(false);
+  // const onScroll = (e) => {
+  //   e.scrollIntoView();
+  //   e.classList.add("highlight");
+  // };
+
+  const onCheck = (e) => {
+    console.log(e);
   };
   return (
     <div className="messages search-results">
       <div className="results-header">
+        <Checkbox onCheck={() => setIsCheckedAll(!isCheckedAll)} />
         <span className="owner">Użytkownik</span>
         <span className="title">Książka</span>
+        <span className="last-activity">Ostatnia aktywność</span>
       </div>
-      <HashLink to="/my-books#1" scroll={(e) => onScroll(e)}>
-        Książka 1
-      </HashLink>
-      <HashLink to="/my-books#2" scroll={(e) => onScroll(e)}>
-        Książka 2
-      </HashLink>
-      <HashLink to="/my-books#3" scroll={(e) => onScroll(e)}>
-        Książka 3
-      </HashLink>
-      <HashLink to="/my-books#4" scroll={(e) => onScroll(e)}>
-        Książka 4
-      </HashLink>
+      <div className="message result">
+        <div className="message-header result-header">
+          <div className="short-details">
+            <Checkbox onCheck={onCheck} isChecked={isCheckedAll} />
+            <span className="author">Jan Kowalski</span>
+            <span className="title">Hrabia Monte Christo</span>
+          </div>
+          <span className="last-activity">21.11.2020, 19:20</span>
+        </div>
+      </div>
+      <div className="message result">
+        <div className="message-header result-header">
+          <div className="short-details">
+            <Checkbox onCheck={onCheck} isChecked={isCheckedAll} />
+            <span className="author">Jan Kowalski</span>
+            <span className="title">Hrabia Monte Christo</span>
+          </div>
+          <span className="last-activity">21.11.2020, 19:20</span>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.checkbox {
+  border: var(--border-gray);
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  vertical-align: text-bottom;
+  background-color: unset;
+}
+
+.checked {
+  border: var(--border-accent);
+  &:after {
+    content: "";
+    display: block;
+    position: relative;
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 11px;
+    border-right: var(--border-accent);
+    border-bottom: var(--border-accent);
+    transform: rotate(45deg);
+  }
+}

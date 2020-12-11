@@ -1,8 +1,8 @@
 $result-height: 4rem;
 
 .result {
-  border-radius: var(--border-radius);
-  border: var(--border-width) solid var(--white); // For not jumping anchor link action
+  // border-radius: var(--border-radius);
+  // border: var(--border-width) solid var(--white); // For not jumping anchor link action
   margin-top: var(--margin-xl);
   line-height: var(--line-height-m);
   &:target {
@@ -85,12 +85,6 @@ $result-height: 4rem;
       grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
       gap: var(--margin-xl);
       width: 100%;
-      .image,
-      span {
-        width: auto;
-        max-width: unset;
-        margin-right: 0;
-      }
       h4 {
         margin-top: -6px;
       }

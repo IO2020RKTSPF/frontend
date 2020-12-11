@@ -1,4 +1,12 @@
 .search-results {
+  .results-header,
+  .result-header {
+    span,
+    .image {
+      display: inline-block;
+      margin-right: var(--margin-xl);
+    }
+  }
   .title,
   .author {
     width: 9.05rem;
@@ -10,13 +18,5 @@
   .location,
   .owner {
     width: 7.7rem;
-  }
-  .image,
-  .title,
-  .author,
-  .location,
-  .owner {
-    display: inline-block;
-    margin-right: var(--margin-xl);
   }
 }
