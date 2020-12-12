@@ -17,8 +17,8 @@ function UserMenu() {
       <i className="arrow-icon"></i>
       <div className="user-menu-dropdown">
         <Link to={"/my-books"}>Moje książki</Link>
-        <Link to={"/"}> Wypożyczone przeze mnie</Link>
         <Link to={"/messages"}>Wiadomości</Link>
+        <Link to={"/"}> Wypożyczone przeze mnie</Link>
         <Link to={"/"}>Ustawienia konta</Link>
         <Logout />
       </div>

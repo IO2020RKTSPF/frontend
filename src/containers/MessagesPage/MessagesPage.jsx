@@ -7,8 +7,8 @@ function MessagesPage() {
       <div className="container">
         <h1>Wiadomości</h1>
         <p>
-          Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
-          zawsze jest proste.
+          Poniżej znajdziesz wiadomości odnośnie wypożyczonych książek przez lub
+          od Ciebie. Porozumiej się z innymi użytkownikami i uzgodnij szczegóły.
         </p>
         <Messages />
       </div>

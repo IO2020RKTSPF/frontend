@@ -14,15 +14,25 @@ describe("Checkbox", () => {
   });
   test("onClick", async () => {
     const mockOnCheck = jest.fn();
-    const { container } = render(<Checkbox onCheck={mockOnCheck} />);
+    const mockOnUncheck = jest.fn();
+    const { container } = render(
+      <Checkbox onCheck={mockOnCheck} onUncheck={mockOnUncheck} />
+    );
     const checkbox = container.querySelector("button");
 
     await act(async () => {
       fireEvent.click(checkbox);
     });
 
-    expect(checkbox).toHaveClass("checked");
+    expect(checkbox).toHaveClass("checkbox checked");
     expect(mockOnCheck).toHaveBeenCalled();
+
+    await act(async () => {
+      fireEvent.click(checkbox);
+    });
+
+    expect(checkbox.classList.contains("checked")).toBe(false);
+    expect(mockOnUncheck).toHaveBeenCalled();
   });
   test("force check", async () => {
     const { container } = render(<Checkbox isChecked={true} />);

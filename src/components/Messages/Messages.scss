@@ -7,9 +7,25 @@
     padding-left: var(--margin-l);
     padding-right: var(--margin-l);
   }
+  .delete-selected {
+    padding: 0;
+    border: none;
+    background-color: unset;
+    color: var(--accent);
+    line-height: var(--line-height-m);
+    &::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      padding-right: var(--margin-m);
+      background: url(../../assets/images/trash.svg) no-repeat;
+      height: 24px;
+      width: 16px;
+      vertical-align: text-top;
+    }
+  }
   .last-activity {
-    float: right;
-    margin-right: 0 !important;
+    width: 8.35rem;
   }
   .title {
     width: 13rem;
