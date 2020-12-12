@@ -1,7 +1,9 @@
+$checkboxSize: 1.2rem;
+
 .checkbox {
   border: var(--border-gray);
-  width: 24px;
-  height: 24px;
+  width: $checkboxSize;
+  height: $checkboxSize;
   padding: 0;
   vertical-align: text-bottom;
   background-color: unset;
@@ -13,10 +15,10 @@
     content: "";
     display: block;
     position: relative;
-    left: 6px;
-    top: -2px;
-    width: 5px;
-    height: 11px;
+    left: 0.3rem;
+    top: -0.1rem;
+    width: 0.25rem;
+    height: 0.55rem;
     border-right: var(--border-accent);
     border-bottom: var(--border-accent);
     transform: rotate(45deg);

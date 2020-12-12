@@ -18,7 +18,7 @@ function App() {
     imageUrl: undefined,
     name: undefined,
     userId: undefined,
-    token : undefined
+    token: undefined,
   });
 
   return (
