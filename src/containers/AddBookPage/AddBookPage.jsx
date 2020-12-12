@@ -1,8 +1,27 @@
+import Api from "../../services/Api";
+import { UserContext } from "../../services/Context";
+import { useContext } from "react";
 import BookForm from "../../components/BookForm/BookForm";
 import "./AddBookPage.scss";
 
 function AddBookPage() {
-  const onSubmit = (data) => console.log(data);
+  const { userData } = useContext(UserContext);
+  const onSubmit = async (data) => {
+    await Api.post("api/books", {
+      title: data.title,
+      author: data.author,
+      isbn: data.isbn,
+      description: data.description,
+      imgUrl: "/url/jakis/testowy",
+      userId: userData.userId,
+    })
+      .then((res) => {
+        //jakis komunikat o powodzeniu :)
+      })
+      .catch((err) => {
+        //jakis komunikat o niepowodzeniu :(
+      });
+  };
 
   return (
     <div className="add-book-page">

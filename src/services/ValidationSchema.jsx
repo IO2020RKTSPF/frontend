@@ -33,5 +33,9 @@ export const validationSchema = yup.object().shape({
     .test("fileSize", "Maksymalny rozmiar zdjęcia to 1 MB", (value) => {
       return value[0] && value[0].size <= 1000000;
     }),
-  description: yup.string().max(70, "Opis maksymalnie może mieć 70 znaków"),
+  description: yup
+    .string()
+    .required(required)
+    .min(3, "Tytuł minimalnie może mieć 3 znaki")
+    .max(70, "Opis maksymalnie może mieć 70 znaków"),
 });
