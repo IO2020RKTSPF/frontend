@@ -7,6 +7,7 @@ import SearchPage from "./containers/SearchPage/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
 import MessagesPage from "./containers/MessagesPage/MessagesPage";
+import MessagePage from "./containers/MessagePage/MessagePage";
 import MyBooksPage from "./containers/MyBooksPage/MyBooksPage";
 import AddBookPage from "./containers/AddBookPage/AddBookPage";
 import Footer from "./components/Footer/Footer";
@@ -33,7 +34,8 @@ function App() {
         <Switch>
           <Route path="/login" component={LoginPage} />
           <PrivateRoute path="/my-books" component={MyBooksPage} />
-          <PrivateRoute path="/messages" component={MessagesPage} />
+          <Route path="/messages" component={MessagesPage} />
+          <Route path="/message/:messageId" component={MessagePage} />
           <PrivateRoute path="/add-book" component={AddBookPage} />
           <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />

@@ -6,14 +6,15 @@ import Button from "../../Button/Button";
 function BorrowButton() {
   const userContext = useContext(UserContext);
 
-  const handleBorrow = () => {
+  const handleBorrow = (e) => {
+    e.stopPropagation();
     console.log("Borrow Button Clicked");
   };
 
   return userContext.userData.isLogged ? (
     <div className="result-button">
       <Button
-        onClick={() => handleBorrow()}
+        onClick={handleBorrow}
         className="accent-button"
         text="Wypożycz"
       />

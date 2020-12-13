@@ -12,10 +12,8 @@ function Results(props) {
 
   const resultHeader = (item, index) => {
     return (
-      <div className="result-header">
-        <div className="short-details" onClick={() => handleShowMore(index)}>
-          {props.resultHeaderText(item)}
-        </div>
+      <div className="result-header" onClick={() => handleShowMore(index)}>
+        <div className="short-details">{props.resultHeaderText(item)}</div>
         {props.resultHeaderAction}
       </div>
     );
