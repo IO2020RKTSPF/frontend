@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../services/Context";
+import { Link } from "react-router-dom";
 import Userbar from "./Userbar";
-import Logo from "../assets/images/logo.svg";
+import LogoWrapper from "./LogoWrapper/LogoWrapper";
 
 function Navbar() {
   const userContext = useContext(UserContext);
@@ -17,10 +17,7 @@ function Navbar() {
 
   return (
     <nav className="container">
-      <Link to={"/"} className="logo-wrapper">
-        <img src={Logo} alt="Site Logo" className="site-logo" />
-        <span>{process.env.REACT_APP_WEBSITE_NAME}</span>
-      </Link>
+      <LogoWrapper text={process.env.REACT_APP_WEBSITE_NAME} />
       {showUserMenu()}
     </nav>
   );

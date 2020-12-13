@@ -40,3 +40,21 @@ body {
     margin-right: var(--margin-m);
   }
 }
+
+.results-header {
+  padding-left: 3.95rem;
+  padding-bottom: var(--margin-m);
+  padding-right: 8.88rem;
+  overflow: hidden;
+  border-bottom: var(--border-gray);
+  height: 1.6rem;
+  color: var(--gray);
+}
+
+.universal-background {
+  background: url(../../assets/images/main-background.svg),
+    url(../../assets/images/right-black-square.svg);
+  background-size: 92.85rem, var(--max-width);
+  background-position: top center, top center;
+  background-repeat: repeat-y, no-repeat;
+}

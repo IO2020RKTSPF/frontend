@@ -1,6 +1,7 @@
 $result-height: 4rem;
 
 .result {
+  margin-top: var(--margin-xl);
   line-height: var(--line-height-m);
   img {
     border-radius: var(--border-radius);
@@ -14,12 +15,12 @@ $result-height: 4rem;
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-top: var(--margin-xl);
     padding: 0 var(--margin-l);
     height: $result-height;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     background-color: var(--white);
+    cursor: pointer;
     .short-details {
       display: flex;
       flex-wrap: wrap;
@@ -80,12 +81,6 @@ $result-height: 4rem;
       grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
       gap: var(--margin-xl);
       width: 100%;
-      .image,
-      span {
-        width: auto;
-        max-width: unset;
-        margin-right: 0;
-      }
       h4 {
         margin-top: -6px;
       }

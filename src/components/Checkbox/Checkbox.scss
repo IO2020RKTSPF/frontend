@@ -1,0 +1,26 @@
+$checkboxSize: 1.2rem;
+
+.checkbox {
+  border: var(--border-gray);
+  width: $checkboxSize;
+  height: $checkboxSize;
+  padding: 0;
+  vertical-align: text-bottom;
+  background-color: unset;
+}
+
+.checked {
+  border: var(--border-accent);
+  &:after {
+    content: "";
+    display: block;
+    position: relative;
+    left: 0.3rem;
+    top: -0.1rem;
+    width: 0.25rem;
+    height: 0.55rem;
+    border-right: var(--border-accent);
+    border-bottom: var(--border-accent);
+    transform: rotate(45deg);
+  }
+}

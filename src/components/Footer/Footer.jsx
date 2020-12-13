@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/logo.svg";
+import LogoWrapper from "../LogoWrapper/LogoWrapper";
 import "./Footer.scss";
 
 function Footer() {
   return (
     <footer className="container">
-      <Link to={"/"} className="logo-wrapper">
-        <img src={Logo} alt="Site Logo" className="site-logo" />
-        <span>© 2020 Wszelkie prawa zastrzeżone.</span>
-      </Link>
+      <LogoWrapper text="© 2020 Wszelkie prawa zastrzeżone." />
       <div className="terms">
         <Link to={"/privacy-policy"}>Polityka prywatności</Link>
         <Link to={"/regulations"}>Regulamin</Link>

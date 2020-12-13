@@ -2,6 +2,7 @@ import Api from "../../services/Api";
 import { UserContext } from "../../services/Context";
 import { useContext } from "react";
 import BookForm from "../../components/BookForm/BookForm";
+import Header from "../../components/Header/Header";
 import "./AddBookPage.scss";
 
 function AddBookPage() {
@@ -26,11 +27,11 @@ function AddBookPage() {
   return (
     <div className="add-book-page">
       <div className="container">
-        <h1>Dodaj własną książkę</h1>
-        <p>
-          Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
-          zawsze jest proste.
-        </p>
+        <Header
+          title="Dodaj własną książkę"
+          subtitle="Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
+          zawsze jest proste."
+        />
         <BookForm onSubmit={onSubmit} />
       </div>
     </div>
