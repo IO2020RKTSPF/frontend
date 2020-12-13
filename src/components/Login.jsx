@@ -21,9 +21,10 @@ function Login() {
             imageUrl: providerRes.imageUrl,
             name: providerRes.name,
             userId: res.data.user.id,
-            token:res.data.token
+            token: res.data.token,
           });
-          Api.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
+          Api.defaults.headers.common["Authorization"] =
+            "Bearer " + res.data.token;
           history.push("/");
         })
         .catch((err) => {
@@ -50,10 +51,11 @@ function Login() {
                   isLogged: true,
                   imageUrl: providerRes.imageUrl,
                   name: providerRes.name,
-                  userId: res.data.id,
-                  token:res.data.token
+                  userId: res.data.user.id,
+                  token: res.data.token,
                 });
-                Api.defaults.headers.common['Authorization'] = 'Bearer '+res.data.token;
+                Api.defaults.headers.common["Authorization"] =
+                  "Bearer " + res.data.token;
                 history.push("/");
               })
               .catch((err) => {

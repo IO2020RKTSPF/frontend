@@ -25,7 +25,7 @@ describe("Add book form", () => {
     expect(getByLabelText(descritpion)).toBeInTheDocument();
     expect(
       getByText(
-        "Niepowtarzalny 13-cyfrowy (kiedyś 10-cyforwy) identyfikator książki."
+        "Niepowtarzalny 13-cyfrowy (kiedyś 10-cyfrowy) identyfikator książki."
       )
     ).toBeInTheDocument();
     expect(getByText(button)).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("Add book form", () => {
       fireEvent.click(getByText(button));
     });
 
-    expect(getAllByText("Pole wymagane")).toHaveLength(4);
+    expect(getAllByText("Pole wymagane")).toHaveLength(5);
   });
 
   describe("Valid inputs", () => {

@@ -9,10 +9,14 @@ import {
 } from "../../services/ValidationSchema";
 
 function BookFrom(props) {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(validationSchema),
   });
-  const onSubmit = (data) => props.onSubmit(data);
+
+  const onSubmit = (data) => {
+    props.onSubmit(data);
+    reset({});
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="book-form">
@@ -39,7 +43,7 @@ function BookFrom(props) {
         </label>
         <label>
           <span>Numer ISBN</span>
-          <Tooltip text="Niepowtarzalny 13-cyfrowy (kiedyś 10-cyforwy) identyfikator książki." />
+          <Tooltip text="Niepowtarzalny 13-cyfrowy (kiedyś 10-cyfrowy) identyfikator książki." />
           <input
             type="text"
             name="isbn"
