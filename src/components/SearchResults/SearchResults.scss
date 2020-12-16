@@ -1,22 +1,29 @@
 .search-results {
+  .results-header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .results-header:not(:first-child),
+  .result-header:not(:first-child) {
+    span {
+      flex: 1 1 5rem;
+    }
+  }
   .results-header,
   .result-header {
     span,
     .image {
       display: inline-block;
       margin-right: var(--margin-xl);
+      max-width: 10rem;
     }
   }
   .title,
   .author {
-    width: 9.05rem;
-  }
-  .title,
-  .author {
-    max-width: 10.4rem;
+    flex: 1 1 5rem;
   }
   .location,
   .owner {
-    width: 7.7rem;
+    flex: 1 1 6.5rem;
   }
 }

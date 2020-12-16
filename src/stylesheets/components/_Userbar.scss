@@ -3,5 +3,9 @@
   align-items: center;
   span {
     margin: 0 var(--margin-l);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 10rem;
+    white-space: nowrap;
   }
 }
