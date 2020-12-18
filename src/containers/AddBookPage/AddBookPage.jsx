@@ -1,12 +1,17 @@
 import Api from "../../services/Api";
 import { UserContext } from "../../services/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import BookForm from "../../components/BookForm/BookForm";
+import { errorMessage, message } from "./components/SubmitMessage";
 import Header from "../../components/Header/Header";
 import "./AddBookPage.scss";
 
 function AddBookPage() {
   const { userData } = useContext(UserContext);
+
+  const [toggleMessage, setToggleMessage] = useState();
+  const [isError, setIsError] = useState(false);
+
   const onSubmit = async (data) => {
     await Api.post("api/books", {
       title: data.title,
@@ -17,10 +22,12 @@ function AddBookPage() {
       userId: userData.userId,
     })
       .then((res) => {
-        //jakis komunikat o powodzeniu :)
+        setToggleMessage(!toggleMessage);
+        setIsError(false);
       })
       .catch((err) => {
-        //jakis komunikat o niepowodzeniu :(
+        setToggleMessage(!toggleMessage);
+        setIsError(true);
       });
   };
 
@@ -32,7 +39,11 @@ function AddBookPage() {
           subtitle="Każdy czytający książki wie, że zdobycie interesującej go pozycji nie
           zawsze jest proste."
         />
-        <BookForm onSubmit={onSubmit} />
+        <BookForm
+          onSubmit={onSubmit}
+          toggleMessage={toggleMessage}
+          message={isError ? errorMessage() : message()}
+        />
       </div>
     </div>
   );

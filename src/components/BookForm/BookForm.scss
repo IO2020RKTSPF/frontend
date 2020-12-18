@@ -20,4 +20,44 @@
     display: block;
     width: calc(100% - (var(--margin-l) * 2) - 4px);
   }
+  .submit {
+    button {
+      align-self: flex-start;
+    }
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--margin-xl);
+  }
+
+  $cubic: cubic-bezier(0.98, 0, 0.86, 0.38);
+  .fade-out,
+  .toggle {
+    animation-duration: 6s;
+    animation-timing-function: $cubic;
+  }
+  .fade-out {
+    line-height: var(--line-height-m);
+    opacity: 0;
+    animation-name: fadeOut;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .toggle {
+    animation-name: toggle;
+  }
+  @keyframes toggle {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }

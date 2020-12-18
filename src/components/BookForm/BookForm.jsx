@@ -15,7 +15,13 @@ function BookFrom(props) {
 
   const onSubmit = (data) => {
     props.onSubmit(data);
-    reset({});
+    reset();
+  };
+
+  const message = (e) => {
+    return props.toggleMessage !== undefined ? (
+      <div className={e}>{props.message}</div>
+    ) : null;
   };
 
   return (
@@ -78,7 +84,10 @@ function BookFrom(props) {
           {errors.description && errorMessage(errors.description.message)}
         </label>
       </div>
-      <Button className="accent-button" text="Dodaj" />
+      <div className="submit">
+        <Button className="accent-button" text="Dodaj" />
+        {props.toggleMessage ? message("fade-out") : message("fade-out toggle")}
+      </div>
     </form>
   );
 }

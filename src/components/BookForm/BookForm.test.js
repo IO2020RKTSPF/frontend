@@ -39,6 +39,23 @@ describe("Add book form", () => {
 
     expect(getAllByText("Pole wymagane")).toHaveLength(5);
   });
+  test("toggle message", () => {
+    const { getByText, container } = render(
+      <BookForm toggleMessage={true} message="Message text" />
+    );
+
+    expect(getByText("Message text")).toBeInTheDocument();
+    expect(container.querySelectorAll(".fade-out").length).toBe(1);
+  });
+
+  test("not toggle message", () => {
+    const { queryByText, container } = render(
+      <BookForm toggleMessage={undefined} message="Message text" />
+    );
+
+    expect(queryByText("Message text")).not.toBeInTheDocument();
+    expect(container.querySelectorAll(".fade-out").length).toBe(0);
+  });
 
   describe("Valid inputs", () => {
     test("with valid inputs (10-digit isbn)", async () => {
