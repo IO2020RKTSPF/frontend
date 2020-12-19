@@ -1,6 +1,6 @@
 .book-form {
   margin-top: calc(var(--margin-xl) * 2);
-  max-width: 817px;
+  max-width: 40.85rem;
   .form-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
@@ -9,7 +9,7 @@
     margin-bottom: var(--margin-xl);
     .tooltip {
       margin-left: var(--margin-m);
-      top: 5px;
+      top: 0.25rem;
     }
   }
   span {
@@ -18,7 +18,7 @@
   }
   input {
     display: block;
-    width: calc(100% - (var(--margin-l) * 2) - 4px);
+    width: calc(100% - (var(--margin-l) * 2) - 0.2rem);
   }
   .submit {
     button {
