@@ -14,7 +14,7 @@ function Results(props) {
     return (
       <div className="result-header" onClick={() => handleShowMore(index)}>
         <div className="short-details">{props.resultHeaderText(item)}</div>
-        {props.resultHeaderAction}
+        {props.resultHeaderAction(item)}
       </div>
     );
   };

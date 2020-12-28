@@ -79,7 +79,7 @@ function MyBooks() {
       <Results
         searchResults={myBooks}
         resultHeaderText={resultHeaderText}
-        resultHeaderAction={<ManageBookButton />}
+        resultHeaderAction={(e) => <ManageBookButton />}
         resultDetails={resultDetails}
       />
     </div>

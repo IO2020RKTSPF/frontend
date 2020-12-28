@@ -81,7 +81,7 @@ function SearchResults() {
       <Results
         searchResults={searchResults}
         resultHeaderText={resultHeaderText}
-        resultHeaderAction={<BorrowButton />}
+        resultHeaderAction={(book) => <BorrowButton book={book} />}
         resultDetails={resultDetails}
       />
     </div>
