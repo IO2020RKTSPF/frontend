@@ -6,15 +6,15 @@ import Moment from "react-moment";
 function Messages(props) {
   const history = useHistory();
 
-  const onMessageClick = (messageId) => {
-    history.push(`/message/${messageId}`);
+  const onMessageClick = (item) => {
+    history.push({ pathname: "/message", state: { message: item } });
   };
 
   return props.messages.map((item) => (
     <div
       id={item.id}
       key={item.id}
-      onClick={() => onMessageClick(123)}
+      onClick={() => onMessageClick(item)}
       className="message result"
     >
       <div className="message-header result-header">
@@ -25,7 +25,7 @@ function Messages(props) {
             isChecked={props.isChecked}
           />
           <span className="last-activity">
-            <Moment date={item.dateTimeStart} format="DD.MM.YYYY" />
+            <Moment date={item.dateTimeStart} format="DD.MM.YYYY, hh:mm" />
           </span>
           <span className="owner">{item.customer.name}</span>
           <span className="title">{item.book.title}</span>
