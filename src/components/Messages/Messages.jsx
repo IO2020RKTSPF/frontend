@@ -25,7 +25,7 @@ function Messages(props) {
             isChecked={props.isChecked}
           />
           <span className="last-activity">
-            <Moment date={item.dateTimeStart} format="DD.MM.YYYY, hh:mm" />
+            <Moment date={item.dateTimeStart} format="DD.MM.YYYY, HH:mm" />
           </span>
           <span className="owner">{item.customer.name}</span>
           <span className="title">{item.book.title}</span>
