@@ -1,4 +1,4 @@
-import Messages from "../../components/Messages/Messages";
+import Inbox from "../../components/Inbox/Inbox";
 import Header from "../../components/Header/Header";
 import "./MessagesPage.scss";
 
@@ -11,7 +11,7 @@ function MessagesPage() {
           subtitle="Poniżej znajdziesz wiadomości odnośnie wypożyczonych książek przez lub
           od Ciebie. Porozumiej się z innymi użytkownikami i uzgodnij szczegóły."
         />
-        <Messages />
+        <Inbox />
       </div>
     </div>
   );
