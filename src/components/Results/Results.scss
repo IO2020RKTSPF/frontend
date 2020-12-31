@@ -28,6 +28,11 @@ $result-height: 4rem;
       width: 100%;
       overflow: hidden;
       margin: var(--margin-l) 0;
+      height: 2.4rem;
+      &::before {
+        content: "";
+        height: 100%;
+      }
       span {
         overflow: hidden;
         text-overflow: ellipsis;

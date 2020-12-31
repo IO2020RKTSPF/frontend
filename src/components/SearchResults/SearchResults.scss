@@ -3,12 +3,6 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .results-header:not(:first-child),
-  .result-header:not(:first-child) {
-    span {
-      flex: 1 1 5rem;
-    }
-  }
   .results-header,
   .result-header {
     span,
@@ -25,5 +19,9 @@
   .location,
   .owner {
     flex: 1 1 6.5rem;
+  }
+  .status,
+  .last-activity {
+    flex: 1 1 8.35rem;
   }
 }
