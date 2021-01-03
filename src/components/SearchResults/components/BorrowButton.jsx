@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../../services/Context";
 import Tooltip from "../../Tooltip";
-import Spacer from "./Spacer/Spacer";
+import Spacer from "../../Spacer/Spacer";
 import Button from "../../Button/Button";
 
 function BorrowButton(props) {

@@ -7,6 +7,7 @@ function Checkbox(props) {
   useEffect(() => {
     setIsChecked(props.isChecked);
   }, [props.isChecked]);
+
   return (
     <button
       className={isChecked ? "checkbox checked" : "checkbox"}

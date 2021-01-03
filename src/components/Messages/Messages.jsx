@@ -7,7 +7,8 @@ function Messages(props) {
   const history = useHistory();
 
   const onMessageClick = (item) => {
-    history.push({ pathname: "/message", state: { message: item } });
+    // history.push({ pathname: "/message", state: { message: item } });
+    history.push(`/message/${item.id}`);
   };
 
   return props.messages.map((item) => (
