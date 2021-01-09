@@ -26,21 +26,23 @@ function MessageBody(props) {
         />
       </div>
     ),
-    Accepted: isOwner && (
-      <div className="result-button">
-        <Button
-          className="accent-button"
-          text="Wypożyczona"
-          onClick={(e) => handleClick(e, "Rented")}
-        />
-      </div>
-    ),
+    Accepted: isOwner && messageButton("Wypożyczona", "Rented"),
   });
 
   const handleClick = (e, status) => {
     e.stopPropagation();
     props.handleStatus(status);
   };
+
+  const messageButton = (text, status) => (
+    <div className="result-button">
+      <Button
+        className="accent-button"
+        text={text}
+        onClick={(e) => handleClick(e, status)}
+      />
+    </div>
+  );
 
   return (
     <div className="message-body search-results">
