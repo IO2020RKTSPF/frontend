@@ -20,9 +20,16 @@ function MessagePage(props) {
   }, [messageId, toggleUpdate]);
 
   const handleStatus = async (messageStatus) => {
-    await Api.patch(`api/transactions/${messageId}`, {
-      status: messageStatus,
-    })
+    await Api.patch(
+      `api/transactions/${messageId}`,
+      {
+        status: messageStatus,
+      },
+      {
+        accept: "text/plain",
+        "Content-Type": "application/json",
+      }
+    )
       .then((res) => {
         setToggleUpdate(!toggleUpdate);
         console.log("Status Changed", res);
