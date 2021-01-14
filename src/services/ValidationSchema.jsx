@@ -12,12 +12,12 @@ export const validationSchema = yup.object().shape({
     .string()
     .required(required)
     .min(3, "Tytuł minimalnie może mieć 3 znaki")
-    .max(70, "Tytuł maksymalnie może mieć 70 znaków"),
+    .max(40, "Tytuł maksymalnie może mieć 40 znaków"),
   author: yup
     .string()
     .required(required)
     .min(3, "Autor minimalnie może mieć 3 znaki")
-    .max(70, "Autor maksymalnie może mieć 70 znaków"),
+    .max(40, "Autor maksymalnie może mieć 40 znaków"),
   isbn: yup
     .string()
     .required(required)
@@ -37,5 +37,5 @@ export const validationSchema = yup.object().shape({
     .string()
     .required(required)
     .min(3, "Tytuł minimalnie może mieć 3 znaki")
-    .max(70, "Opis maksymalnie może mieć 70 znaków"),
+    .max(40, "Opis maksymalnie może mieć 40 znaków"),
 });
