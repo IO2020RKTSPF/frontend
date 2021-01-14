@@ -2,12 +2,13 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import Checkbox from "../Checkbox/Checkbox";
 import Moment from "react-moment";
+import { useUserData } from "../../services/hooks";
 
 function Messages(props) {
   const history = useHistory();
+  const { userId } = useUserData();
 
   const onMessageClick = (item) => {
-    // history.push({ pathname: "/message", state: { message: item } });
     history.push(`/message/${item.id}`);
   };
 
@@ -28,8 +29,13 @@ function Messages(props) {
           <span className="last-activity">
             <Moment date={item.dateTimeStart} format="DD.MM.YYYY, HH:mm" />
           </span>
-          <span className="owner">{item.customer.name}</span>
+          <span className="owner">
+            {item.customer.id === userId
+              ? item.book.owner.name
+              : item.customer.name}
+          </span>
           <span className="title">{item.book.title}</span>
+          <span className="title">{item.status}</span>
         </div>
       </div>
     </div>

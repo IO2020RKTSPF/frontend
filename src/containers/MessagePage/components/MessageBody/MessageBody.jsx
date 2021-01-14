@@ -1,18 +1,22 @@
 import Results from "../../../../components/Results/Results";
 import "./MessageBody.scss";
 import Button from "../../../../components/Button/Button";
+import Spacer from "../../../../components/Spacer/Spacer";
 import {
   resultsHeader,
   resultHeaderText,
   resultDetails,
 } from "./ResultsFunctions";
+import { useUserData } from "../../../../services/hooks";
 
 function MessageBody(props) {
   console.log("MessageBody", props.message);
   const message = props.message;
+  const spacer = <Spacer width="11.7rem" />;
+  const { userId } = useUserData();
 
   const status = (isOwner) => ({
-    Pending: isOwner && (
+    Pending: isOwner ? (
       <div className="result-button">
         <Button
           className="accent-button"
@@ -25,8 +29,12 @@ function MessageBody(props) {
           onClick={(e) => handleClick(e, "Declined")}
         />
       </div>
+    ) : (
+      spacer
     ),
-    Accepted: isOwner && messageButton("Wypożyczona", "Rented"),
+    Accepted: isOwner ? messageButton("Wypożyczona", "Rented") : spacer,
+    Rented: isOwner ? messageButton("Zakończ", "Finished") : spacer,
+    Finished: spacer,
   });
 
   const handleClick = (e, status) => {
@@ -51,7 +59,8 @@ function MessageBody(props) {
         searchResults={message}
         resultHeaderText={resultHeaderText}
         resultHeaderAction={() =>
-          status(true)[message.length && message[0].status]
+          message.length &&
+          status(userId !== message[0].customer.id)[message[0].status]
         }
         resultDetails={resultDetails}
       />

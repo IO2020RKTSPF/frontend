@@ -39,6 +39,7 @@ function Inbox() {
             <span className="last-activity">Ostatnia aktywność</span>
             <span className="owner">Użytkownik</span>
             <span className="title">Książka</span>
+            <span className="status">Status</span>
           </>
         )}
       </div>
