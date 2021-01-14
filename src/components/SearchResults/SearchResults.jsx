@@ -7,18 +7,33 @@ import BorrowButton from "./components/BorrowButton";
 
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
+  const [toggleUpdate, setToggleUpdate] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       await Api.get("/api/books")
         .then((res) => {
-          console.log("Books", res);
-          setSearchResults(res.data);
+          console.log("Books", res.data);
+          setSearchResults(res.data.filter((e) => e.isAvaible));
         })
         .catch((err) => console.error("Api call", err));
     };
     fetchData();
-  }, []);
+  }, [toggleUpdate]);
+
+  const handleBorrow = async (bookId) => {
+    await Api.post("api/transactions", {
+      bookId: bookId,
+      daysOfRentalTime: 10,
+    })
+      .then((res) => {
+        setToggleUpdate(!toggleUpdate);
+        console.log("Borrow", res);
+      })
+      .catch((err) => {
+        console.log("Borrow", err);
+      });
+  };
 
   const resultHeaderText = (item) => {
     return (
@@ -67,8 +82,8 @@ function SearchResults() {
     );
   };
 
-  return (
-    <div className="search-results">
+  const resultsHeader = () => {
+    return (
       <div className="results-header">
         <span className="image">Zdjęcie</span>
         <span className="title">Tytuł</span>
@@ -78,10 +93,18 @@ function SearchResults() {
         </span>
         <span className="owner">Właściciel</span>
       </div>
+    );
+  };
+
+  return (
+    <div className="search-results">
+      {resultsHeader()}
       <Results
         searchResults={searchResults}
         resultHeaderText={resultHeaderText}
-        resultHeaderAction={<BorrowButton />}
+        resultHeaderAction={(book) => (
+          <BorrowButton book={book} onClick={handleBorrow} />
+        )}
         resultDetails={resultDetails}
       />
     </div>

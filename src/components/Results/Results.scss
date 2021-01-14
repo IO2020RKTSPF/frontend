@@ -28,6 +28,11 @@ $result-height: 4rem;
       width: 100%;
       overflow: hidden;
       margin: var(--margin-l) 0;
+      height: 2.4rem;
+      &::before {
+        content: "";
+        height: 100%;
+      }
       span {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -47,7 +52,13 @@ $result-height: 4rem;
       align-items: center;
       button {
         height: 2.4rem;
-        margin-right: var(--margin-l);
+        margin-left: var(--margin-l);
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      .tooltip {
+        margin-left: var(--margin-l);
       }
     }
   }

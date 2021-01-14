@@ -169,7 +169,7 @@ describe("Add book form", () => {
         getByText("Zdjęcie tylko w formacie .png lub .jpg")
       ).toBeInTheDocument();
       expect(
-        getByText("Opis maksymalnie może mieć 70 znaków")
+        getByText("Opis maksymalnie może mieć 40 znaków")
       ).toBeInTheDocument();
     });
     test("with all invalid inputs, version 2", async () => {
@@ -204,15 +204,15 @@ describe("Add book form", () => {
       });
 
       expect(
-        getByText("Tytuł maksymalnie może mieć 70 znaków")
+        getByText("Tytuł maksymalnie może mieć 40 znaków")
       ).toBeInTheDocument();
       expect(
-        getByText("Autor maksymalnie może mieć 70 znaków")
+        getByText("Autor maksymalnie może mieć 40 znaków")
       ).toBeInTheDocument();
       expect(getByText("Numer ISBN to 10 lub 13 cyfr")).toBeInTheDocument();
       expect(getByText("Pole wymagane")).toBeInTheDocument();
       expect(
-        getByText("Opis maksymalnie może mieć 70 znaków")
+        getByText("Opis maksymalnie może mieć 40 znaków")
       ).toBeInTheDocument();
     });
   });

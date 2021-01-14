@@ -1,4 +1,4 @@
-.messages {
+.inbox {
   .checkbox {
     margin-right: var(--margin-xl);
     margin-left: var(--margin-l);
@@ -6,6 +6,9 @@
   .results-header {
     padding-left: var(--margin-l);
     padding-right: var(--margin-l);
+    .checkbox {
+      margin-top: 0.2rem;
+    }
   }
   .delete-selected {
     padding: 0;
@@ -24,15 +27,7 @@
       vertical-align: text-top;
     }
   }
-  .last-activity {
-    width: 8.35rem;
-  }
-  .title {
-    width: 13rem;
-  }
   .message {
-    margin-top: var(--margin-xl);
-    line-height: var(--line-height-m);
     .message-header {
       align-items: center;
     }

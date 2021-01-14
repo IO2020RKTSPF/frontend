@@ -1,34 +1,43 @@
 import { useContext } from "react";
 import { UserContext } from "../../../services/Context";
 import Tooltip from "../../Tooltip";
+import Spacer from "../../Spacer/Spacer";
 import Button from "../../Button/Button";
 
-function BorrowButton() {
-  const userContext = useContext(UserContext);
+function BorrowButton(props) {
+  const { userData } = useContext(UserContext);
+  const bookOwnerId = props.book.owner.id;
 
-  const handleBorrow = (e) => {
+  const onClick = (e) => {
     e.stopPropagation();
-    console.log("Borrow Button Clicked");
+    props.onClick(props.book.id);
   };
 
-  return userContext.userData.isLogged ? (
-    <div className="result-button">
-      <Button
-        onClick={handleBorrow}
-        className="accent-button"
-        text="Wypożycz"
-      />
-      <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
-    </div>
-  ) : (
-    <div className="result-button">
-      <Button className="disable" disabled={true} text="Wypożycz" />
-      <Tooltip
-        text="Zaloguj się aby móc wypożyczyć."
-        textStyle={{ width: "6.7rem" }}
-      />
-    </div>
-  );
-}
+  const activeButton = () => {
+    return (
+      <div className="result-button">
+        <Button onClick={onClick} className="accent-button" text="Wypożycz" />
+        <Tooltip text="Wysłanie prośby o wypożyczenie książki do właściciela." />
+      </div>
+    );
+  };
 
+  const disableButton = () => {
+    return (
+      <div className="result-button">
+        <Button className="disable" disabled={true} text="Wypożycz" />
+        <Tooltip
+          text="Zaloguj się aby móc wypożyczyć."
+          textStyle={{ width: "6.7rem" }}
+        />
+      </div>
+    );
+  };
+
+  const button = () => {
+    return userData.isLogged ? activeButton() : disableButton();
+  };
+
+  return userData.userId !== bookOwnerId ? button() : <Spacer width="8rem" />;
+}
 export default BorrowButton;

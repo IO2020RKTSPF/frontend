@@ -13,16 +13,18 @@ function Login() {
     const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-      await Api.post(`api/users/login`,
-      {
-        loginId: providerRes.googleId,
-        name: providerRes.name,
-      },
-      {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Allow-Origin": "*",
-      })
+      await Api.post(
+        `api/users/login`,
+        {
+          loginId: providerRes.googleId,
+          name: providerRes.name,
+        },
+        {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Origin": "*",
+        }
+      )
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
