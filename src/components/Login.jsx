@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "./Context";
+import { UserContext } from "../services/Context";
 import { useGoogleLogin } from "react-google-login";
 import Api from "../services/Api";
 import GoogleLogo from "../assets/images/google-logo.svg";
@@ -13,51 +13,36 @@ function Login() {
     const providerRes = providerResponse.profileObj;
 
     const fetchLogin = async () => {
-      await Api.get(`api/users/login/${providerRes.googleId}`)
+      await Api.post(
+        `api/users/login`,
+        {
+          loginId: providerRes.googleId,
+          name: providerRes.name,
+        },
+        {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Origin": "*",
+        }
+      )
         .then((res) => {
           console.log("Login Success", res);
           userContext.setUserData({
-            token: true,
+            isLogged: true,
             imageUrl: providerRes.imageUrl,
             name: providerRes.name,
-            userId: res.data.id,
+            userId: res.data.user.id,
+            token: res.data.token,
           });
+          Api.defaults.headers.common["Authorization"] =
+            "Bearer " + res.data.token;
           history.push("/");
         })
         .catch((err) => {
-          if (err.response === undefined || err.response.status !== 404) {
+          if (err.response === undefined) {
             console.log(err);
             return;
           }
-          const addUser = async () => {
-            await Api.post(
-              "api/users",
-              {
-                loginId: providerRes.googleId,
-                name: providerRes.name,
-              },
-              {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Origin": "*",
-              }
-            )
-              .then((res) => {
-                console.log("Login Success", res);
-                userContext.setUserData({
-                  token: true,
-                  imageUrl: providerRes.imageUrl,
-                  name: providerRes.name,
-                  userId: res.data.id,
-                });
-                history.push("/");
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          };
-
-          addUser();
         });
     };
 

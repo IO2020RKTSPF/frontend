@@ -5,11 +5,11 @@ import UserMenu from "../components/UserMenu";
 function Userbar() {
   return (
     <div className="userbar">
-      <Link to={"/"} className="bell">
+      <Link to={"/messages"} className="bell">
         <img src={Bell} alt="Bell" />
       </Link>
       <UserMenu />
-      <Link to={"/"} className="accent-button">
+      <Link to={"/add-book"} className="accent-button">
         Dodaj książkę
       </Link>
     </div>

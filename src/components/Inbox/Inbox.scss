@@ -1,0 +1,35 @@
+.inbox {
+  .checkbox {
+    margin-right: var(--margin-xl);
+    margin-left: var(--margin-l);
+  }
+  .results-header {
+    padding-left: var(--margin-l);
+    padding-right: var(--margin-l);
+    .checkbox {
+      margin-top: 0.2rem;
+    }
+  }
+  .delete-selected {
+    padding: 0;
+    border: none;
+    background-color: unset;
+    color: var(--accent);
+    line-height: var(--line-height-m);
+    &::before {
+      content: "";
+      display: inline-block;
+      position: relative;
+      padding-right: var(--margin-m);
+      background: url(../../assets/images/trash.svg) no-repeat;
+      height: 24px;
+      width: 16px;
+      vertical-align: text-top;
+    }
+  }
+  .message {
+    .message-header {
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.search-results {
+  .results-header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .results-header,
+  .result-header {
+    span,
+    .image {
+      display: inline-block;
+      margin-right: var(--margin-xl);
+      max-width: 10rem;
+    }
+  }
+  .title,
+  .author {
+    flex: 1 1 5rem;
+  }
+  .location,
+  .owner {
+    flex: 1 1 6.5rem;
+  }
+  .status,
+  .last-activity {
+    flex: 1 1 8.35rem;
+  }
+}

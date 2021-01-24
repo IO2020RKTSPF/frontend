@@ -1,0 +1,63 @@
+.book-form {
+  margin-top: calc(var(--margin-xl) * 2);
+  max-width: 40.85rem;
+  .form-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    column-gap: var(--margin-l);
+    row-gap: var(--margin-xl);
+    margin-bottom: var(--margin-xl);
+    .tooltip {
+      margin-left: var(--margin-m);
+      top: 0.25rem;
+    }
+  }
+  span {
+    display: inline-block;
+    margin-bottom: var(--margin-m);
+  }
+  input {
+    display: block;
+    width: calc(100% - (var(--margin-l) * 2) - 0.2rem);
+  }
+  .submit {
+    button {
+      align-self: flex-start;
+    }
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--margin-xl);
+  }
+
+  $cubic: cubic-bezier(0.98, 0, 0.86, 0.38);
+  .fade-out,
+  .toggle {
+    animation-duration: 6s;
+    animation-timing-function: $cubic;
+  }
+  .fade-out {
+    line-height: var(--line-height-m);
+    opacity: 0;
+    animation-name: fadeOut;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .toggle {
+    animation-name: toggle;
+  }
+  @keyframes toggle {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

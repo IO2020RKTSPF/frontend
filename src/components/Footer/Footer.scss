@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--margin-l);
+  margin-top: var(--margin-xxxl);
+  font-size: var(--font-size-m);
+  .terms {
+    a {
+      margin-left: var(--margin-xxl);
+    }
+  }
+}

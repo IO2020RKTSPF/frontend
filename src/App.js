@@ -1,18 +1,25 @@
 import { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { UserContext } from "./components/Context";
+import { UserContext } from "./services/Context";
+import PrivateRoute from "./services/PrivateRoute";
 import Navbar from "./components/Navbar";
-import SearchPage from "./containers/SearchPage";
+import SearchPage from "./containers/SearchPage/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import ErrorPage from "./containers/ErrorPage";
-import Footer from "./components/Footer";
+import MessagesPage from "./containers/MessagesPage/MessagesPage";
+import MessagePage from "./containers/MessagePage/MessagePage";
+import MyBooksPage from "./containers/MyBooksPage/MyBooksPage";
+import AddBookPage from "./containers/AddBookPage/AddBookPage";
+import Footer from "./components/Footer/Footer";
 import "./stylesheets/main.scss";
 
 function App() {
   const [userData, setUserData] = useState({
-    token: undefined,
+    isLogged: false,
     imageUrl: undefined,
     name: undefined,
+    userId: undefined,
+    token: undefined,
   });
 
   return (
@@ -25,7 +32,11 @@ function App() {
       >
         <Navbar />
         <Switch>
-          <Route path="/login" component={() => <LoginPage />} />
+          <Route path="/login" component={LoginPage} />
+          <PrivateRoute path="/my-books" component={MyBooksPage} />
+          <PrivateRoute path="/messages" component={MessagesPage} />
+          <PrivateRoute path="/message/:messageId" component={MessagePage} />
+          <PrivateRoute path="/add-book" component={AddBookPage} />
           <Route exact path="/" component={SearchPage} />
           <Route component={ErrorPage} />
         </Switch>

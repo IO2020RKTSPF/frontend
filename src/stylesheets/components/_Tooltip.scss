@@ -12,7 +12,7 @@ $size: 1.2rem;
   .tooltip-text {
     display: none;
     position: absolute;
-    top: calc((var(--margin-xl) + var(--margin-m)) * -1);
+    bottom: calc(var(--margin-l) * -1);
     right: calc(var(--margin-l) * -1);
     padding: var(--margin-l);
     border-radius: var(--border-radius);
